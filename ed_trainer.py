@@ -1,4 +1,5 @@
-from transformers import AutoTokenizer, PretrainedConfig, DataCollatorForSeq2Seq, Seq2SeqTrainer, Seq2SeqTrainingArguments
+from transformers import PretrainedConfig, DataCollatorForSeq2Seq, Seq2SeqTrainer, Seq2SeqTrainingArguments
+from safetensors.torch import save_file
 import torch
 import os
 
@@ -58,6 +59,7 @@ if __name__ == "__main__":
         eval_steps=200, 
         fp16=True,
         remove_unused_columns=True,
+        save_safetensors=False
     )
 
     model.train()
@@ -69,5 +71,5 @@ if __name__ == "__main__":
         data_collator=data_collator,
     )
     trainer.train() 
-    trainer.save_model(info_model["folder"])
-    torch.save(model.state_dict(), info_model["folder"] + "/pytorch_model.bin")
+    os.makedirs(info_model["folder"], exist_ok=True)
+    save_file(info_model["folder"] + "/model.safetensors")

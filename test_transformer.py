@@ -3,6 +3,7 @@ import torch
 from tqdm import tqdm
 import numpy as np
 import json
+from safetensors.torch import load_file
 
 from tokenized_data.tokenizer import tokenizer
 from transformer_trainer import model, info_model, data_collator

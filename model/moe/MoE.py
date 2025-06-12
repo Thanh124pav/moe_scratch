@@ -8,9 +8,9 @@ class Expert(nn.Module):
     def __init__(self, n_embed):
         super().__init__()
         self.net = nn.Sequential(
-            nn.Linear(n_embed, 4 * n_embed),
+            nn.Linear(n_embed, 2 * n_embed),
             nn.ReLU(),
-            nn.Linear(4 * n_embed, n_embed),
+            nn.Linear(2 * n_embed, n_embed),
             nn.Dropout(0.2),
         )
 

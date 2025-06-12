@@ -1,14 +1,16 @@
-from transformers import AutoTokenizer, PretrainedConfig, DataCollatorForSeq2Seq, Seq2SeqTrainer, Seq2SeqTrainingArguments
+from transformers import PretrainedConfig, DataCollatorForSeq2Seq, Seq2SeqTrainer, Seq2SeqTrainingArguments
+from safetensors.torch import save_file
 import torch
 import os
 
 from tokenized_data.tokenizer import tokenizer
-from model.transformer.transformer_model import TransformerModel , kaiming_init_weights
+from model.transformer.decoder_only import DecoderOnly, kaiming_init_weights
+# from model.transformer.transformer_model import TransformerModel , kaiming_init_weights
 from tokenized_data.load_ed_data import train_dataset, eval_dataset
 
 os.environ["WANDB_API_KEY"] = "e1ca972bcd5ce8fed1316c6115941ba2e37addaf" 
 info_model = {
-    "folder": "ed_tokR_wiki"
+    "folder": "td_tokR_wiki"
 }
 batch_size = 2
 
@@ -22,8 +24,8 @@ config = PretrainedConfig(
     n_layers = 8,
     n_heads = 8,
 )
-
-model = TransformerModel(config).to("cuda")
+model = DecoderOnly(config).to("cuda")
+# model = TransformerModel(config).to("cuda")
 model.apply(kaiming_init_weights)
 total_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
 print(f"Model size: {total_params / 1e6} M")
@@ -37,7 +39,7 @@ data_collator = DataCollatorForSeq2Seq(
 )
 if __name__ == "__main__":
     training_args = Seq2SeqTrainingArguments(
-        "ed_tokR_wiki/",
+        "td_tokR_wiki/",
         report_to="wandb",
         do_train=True,
         do_eval=True,
@@ -66,5 +68,5 @@ if __name__ == "__main__":
         data_collator=data_collator,
     )
     trainer.train() 
-    trainer.save_model(info_model["folder"])
-    torch.save(model.state_dict(), info_model["folder"] + "/pytorch_model.bin")
+    os.makedirs(info_model["folder"], exist_ok=True)
+    save_file(info_model["folder"] + "/model.safetensors")
