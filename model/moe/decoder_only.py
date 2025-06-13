@@ -47,8 +47,10 @@ class MoEDecoderModel(nn.Module):
         self.blocks = nn.ModuleList([Block(embed_dim,  n_heads, n_experts , top_k) for _ in range(n_layers)])
         self.ln_f = nn.LayerNorm(embed_dim) # final layer norm
         self.lm_head = nn.Linear(embed_dim, vocab_size)
+        
 
-    def forward(self, input_ids, labels=None, attention_mask = None, past_kv = None,  use_cache = False):
+
+    def forward(self, input_ids, labels=None, attention_mask=None, past_kv=None, use_cache=False):
         B, T = input_ids.shape
         tok_emb = self.token_embedding_table(input_ids) # (B,T,C)
         pos_emb = self.position_embedding_table(torch.arange(T, device=device)) # (T,C)
@@ -66,15 +68,18 @@ class MoEDecoderModel(nn.Module):
         x = self.ln_f(x) # (B,T,C)
         logits = self.lm_head(x) # (B,T,vocab_size)
 
-        if labels is None:
-            loss = None
-        else:
+        # Tính toán các loss
+        loss = None
+        
+        if labels is not None:
             B, T, C = logits.shape
-            logits = logits.reshape(B*T, C)
-            labels = labels.reshape(B*T)
-            loss = F.cross_entropy(logits, labels) + lb_weight * total_lb_loss
+            logits_flat = logits.reshape(B*T, C)
+            labels_flat = labels.reshape(B*T)
+            loss = F.cross_entropy(logits_flat, labels_flat) + lb_weight * total_lb_loss
+            
+
+                
         if use_cache: 
-            #print(f"size of kv_cache: {next_kvs[0][0].shape}")
             return Seq2SeqLMOutput(logits=logits, loss=loss), next_kvs
         return Seq2SeqLMOutput(logits=logits, loss=loss)
     

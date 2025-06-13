@@ -47,7 +47,6 @@ class DecoderOnly(nn.Module):
         )
         self.ln_f = nn.LayerNorm(embed_dim)
         self.lm_head = nn.Linear(embed_dim, vocab_size, bias=False)
-        self.teacher_model = config.teacher_model 
         # Thêm các tham số cho KL divergence
         self.kl_weight = nn.Parameter(torch.ones(1))  # Learnable weight for KL loss
         self.temperature = 1.0  # Temperature parameter for softmax
@@ -84,7 +83,6 @@ class DecoderOnly(nn.Module):
         logits = self.lm_head(x)
     
         loss = None
-        kl_loss = None
         
         if labels is not None:
             B, T, C = logits.shape
@@ -92,14 +90,6 @@ class DecoderOnly(nn.Module):
             labels_flat = labels.reshape(B*T)
             loss = F.cross_entropy(logits_flat, labels_flat, ignore_index=-100)
             
-        if self.teacher_model is not None:
-            self.teacher_model.eval()
-            teacher_logits = self.teacher_model(input_ids).logits
-            kl_loss = self.compute_kl_loss(logits, teacher_logits)
-            if loss is not None:
-                loss = loss + self.kl_weight * kl_loss
-            else:
-                loss = self.kl_weight * kl_loss
                 
         if use_cache:
             return Seq2SeqLMOutput(logits=logits, loss=loss), next_kvs
