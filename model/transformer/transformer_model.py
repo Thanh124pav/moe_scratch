@@ -23,11 +23,29 @@ class TransformerModel(nn.Module):
         self.encoder = Encoder(config, self.shared_embedding)  
         self.decoder = Decoder(config, self.shared_embedding)
         self.lm_head = nn.Linear(embed_dim, vocab_size)
+        
+        # Thêm các tham số cho KL divergence
+        self.kl_weight = nn.Parameter(torch.ones(1))  # Learnable weight for KL loss
+        self.temperature = 1.0  # Temperature parameter for softmax
 
+    def compute_kl_loss(self, student_logits, teacher_logits):
+        """
+        Compute KL divergence loss between student and teacher logits
+        """
+        student_log_probs = F.log_softmax(student_logits / self.temperature, dim=-1)
+        teacher_probs = F.softmax(teacher_logits / self.temperature, dim=-1)
+        
+        kl_loss = F.kl_div(
+            student_log_probs,
+            teacher_probs,
+            reduction='batchmean'
+        ) * (self.temperature ** 2)
+        
+        return kl_loss
 
     def forward(self, input_ids=None, decoder_input_ids=None, labels=None,
-                past_key_values=None, use_cache=False, return_dict = True,
-                encoder_outputs=None, attention_mask=None):
+                past_key_values=None, use_cache=False, return_dict=True,
+                encoder_outputs=None, attention_mask=None, teacher_logits=None):
 
         if decoder_input_ids is None:
             decoder_start_token_id = self.decoder_start_token_id
@@ -60,9 +78,21 @@ class TransformerModel(nn.Module):
         
         y, _, next_kvs = self.decoder(decoder_input_ids, enc_out, past_key_values, use_cache)
         logits = self.lm_head(y)
+        
+        # Tính toán các loss
         loss = None
+        kl_loss = None
+        
         if labels is not None:
             loss = F.cross_entropy(logits.view(-1, logits.size(-1)), labels.view(-1), ignore_index=-100)
+            
+        if teacher_logits is not None:
+            kl_loss = self.compute_kl_loss(logits, teacher_logits)
+            if loss is not None:
+                loss = loss + self.kl_weight * kl_loss
+            else:
+                loss = self.kl_weight * kl_loss
+                
         return Seq2SeqLMOutput(
             loss=loss,
             logits=logits,

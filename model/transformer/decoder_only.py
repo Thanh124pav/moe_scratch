@@ -47,10 +47,31 @@ class DecoderOnly(nn.Module):
         )
         self.ln_f = nn.LayerNorm(embed_dim)
         self.lm_head = nn.Linear(embed_dim, vocab_size, bias=False)
-    def forward(self, input_ids, labels=None, past_key_values = None, use_cache = False, **kwargs): 
+        self.teacher_model = config.teacher_model 
+        # Thêm các tham số cho KL divergence
+        self.kl_weight = nn.Parameter(torch.ones(1))  # Learnable weight for KL loss
+        self.temperature = 1.0  # Temperature parameter for softmax
+        
+    def compute_kl_loss(self, student_logits, teacher_logits):
+        """
+        Compute KL divergence loss between student and teacher logits
+        """
+        student_log_probs = F.log_softmax(student_logits / self.temperature, dim=-1)
+        teacher_probs = F.softmax(teacher_logits / self.temperature, dim=-1)
+        
+        kl_loss = F.kl_div(
+            student_log_probs,
+            teacher_probs,
+            reduction='batchmean'
+        ) * (self.temperature ** 2)
+        
+        return kl_loss
+        
+    def forward(self, input_ids, labels=None, past_key_values=None, 
+                use_cache=False, **kwargs): 
         B, T = input_ids.shape 
         tok_emb = self.embed(input_ids)
-        pos_emb = self.pos_embed(torch.arange(T, device = input_ids.device))
+        pos_emb = self.pos_embed(torch.arange(T, device=input_ids.device))
         x = tok_emb + pos_emb 
         x = self.drop(x)
         next_kvs = []
@@ -61,19 +82,31 @@ class DecoderOnly(nn.Module):
                 next_kvs.append(kv)
         x = self.ln_f(x)
         logits = self.lm_head(x)
-        if labels is None:
-            loss = None
-        else:
+    
+        loss = None
+        kl_loss = None
+        
+        if labels is not None:
             B, T, C = logits.shape
-            logits = logits.reshape(B*T, C)
-            labels = labels.reshape(B*T)
-            loss = F.cross_entropy(logits, labels, ignore_index=-100)
+            logits_flat = logits.reshape(B*T, C)
+            labels_flat = labels.reshape(B*T)
+            loss = F.cross_entropy(logits_flat, labels_flat, ignore_index=-100)
+            
+        if self.teacher_model is not None:
+            self.teacher_model.eval()
+            teacher_logits = self.teacher_model(input_ids).logits
+            kl_loss = self.compute_kl_loss(logits, teacher_logits)
+            if loss is not None:
+                loss = loss + self.kl_weight * kl_loss
+            else:
+                loss = self.kl_weight * kl_loss
+                
         if use_cache:
             return Seq2SeqLMOutput(logits=logits, loss=loss), next_kvs
         return Seq2SeqLMOutput(logits=logits, loss=loss)
     
     @torch.no_grad
-    def generate(self, input_ids, context_length,  max_new_tokens = 128):
+    def generate(self, input_ids, context_length, max_new_tokens=128):
         self.eval()
         batch_size = input_ids.shape[0]
         generated = torch.zeros((batch_size, max_new_tokens), dtype=torch.long, device=input_ids.device)

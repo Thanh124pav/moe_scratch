@@ -1,6 +1,7 @@
 import os
 import torch
-from transformers import PretrainedConfig, DataCollatorForSeq2Seq, Seq2SeqTrainer, Seq2SeqTrainingArguments
+from transformers import PretrainedConfig, DataCollatorForSeq2Seq, Seq2SeqTrainer, Seq2SeqTrainingArguments, AutoModelForSeq2SeqLM
+vit5_model = AutoModelForSeq2SeqLM.from_pretrained("VietAI/vit5-base")
 t = torch.rand(10, 10).cuda()
 print(t.device) # should be CUDA
 print("PyTorch:", torch.__version__)  
@@ -26,10 +27,11 @@ config = PretrainedConfig(
     n_layers = 4,
     n_heads = 8,
     n_experts = 8,
-    top_k_experts = 2
+    top_k_experts = 2,
+    teacher_model = vit5_model, 
 )
 
-batch_size = 4
+batch_size = 2
 model = MoEDecoderModel(config).to('cuda')
 data_collator = DataCollatorForSeq2Seq(
     tokenizer, 

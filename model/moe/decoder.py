@@ -45,7 +45,9 @@ class Decoder(nn.Module):
         self.drop = nn.Dropout(0.1)
         self.pos_embed = nn.Embedding(block_size, embed_dim)
         self.layers = nn.ModuleList([DecoderBlock(embed_dim, n_heads, n_experts, top_k) for _ in range(n_layers)])
-    def forward(self, decoder_input_ids, enc_out, past_key_values = None, use_cache = False, attention_mask = None, **kwargs ):
+        
+    def forward(self, decoder_input_ids, enc_out, past_key_values=None, use_cache=False, 
+                attention_mask=None, **kwargs):
         B, T = decoder_input_ids.shape
         tok_emb = self.embed(decoder_input_ids)
         pos_emb = self.pos_embed(torch.arange(T, device = decoder_input_ids.device))
@@ -53,6 +55,7 @@ class Decoder(nn.Module):
         y = self.drop(y)
         next_kvs = []
         lb_loss = 0
+        
         for i, layer in enumerate(self.layers):
             past = past_key_values[i] if past_key_values else None
             y, lb, kv = layer(y, enc_out, past, use_cache)
@@ -61,4 +64,5 @@ class Decoder(nn.Module):
                 next_kvs.append(kv)
         if use_cache is None: 
             next_kvs = None
+            
         return y, lb_loss, next_kvs
