@@ -1,0 +1,32 @@
+
+[34m[1mwandb[39m[22m: [33mWARNING[39m Changes to your `wandb` environment variables will be ignored because your `wandb` session has already started. For more information on how to modify your settings with `wandb.init()` arguments, please refer to [34m[4mhttps://wandb.me/wandb-init[39m[24m.
+Starting data loading...
+Traceback (most recent call last):
+  File "d:\Downloads\DS_AI\VDT\MoE\moe\train.py", line 50, in <module>
+    trainer.train_model()
+  File "d:\Downloads\DS_AI\VDT\MoE\moe\trainer.py", line 30, in train_model
+    train_dataset, eval_dataset, _ = load_data(self.path_data)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Downloads\DS_AI\VDT\MoE\moe\tokenized_data\load_data.py", line 7, in load_data
+    eval_dataset = load_from_disk(path + "eval")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\Lib\site-packages\datasets\load.py", line 1890, in load_from_disk
+    return Dataset.load_from_disk(dataset_path, keep_in_memory=keep_in_memory, storage_options=storage_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\Lib\site-packages\datasets\arrow_dataset.py", line 1674, in load_from_disk
+    fs.download(src_dataset_path, dest_dataset_path.as_posix(), recursive=True)
+  File "D:\Anaconda3\Lib\site-packages\fsspec\spec.py", line 1767, in download
+    return self.get(rpath, lpath, recursive=recursive, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\Lib\site-packages\fsspec\spec.py", line 976, in get
+    self.get_file(rpath, lpath, callback=child, **kwargs)
+  File "D:\Anaconda3\Lib\site-packages\fsspec\implementations\local.py", line 152, in get_file
+    return self.cp_file(path1, path2, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\Lib\site-packages\fsspec\implementations\local.py", line 133, in cp_file
+    shutil.copyfile(path1, path2)
+  File "D:\Anaconda3\Lib\shutil.py", line 276, in copyfile
+    _copyfileobj_readinto(fsrc, fdst, min(file_size, COPY_BUFSIZE))
+  File "D:\Anaconda3\Lib\shutil.py", line 187, in _copyfileobj_readinto
+    fdst_write(mv)
+OSError: [Errno 28] No space left on device

@@ -1,0 +1,14 @@
+
+[34m[1mwandb[39m[22m: [33mWARNING[39m Changes to your `wandb` environment variables will be ignored because your `wandb` session has already started. For more information on how to modify your settings with `wandb.init()` arguments, please refer to [34m[4mhttps://wandb.me/wandb-init[39m[24m.
+Starting data loading...
+  0%|                                                                                        | 0/14978 [00:00<?, ?it/s]
+Train dataset size: 119823
+Eval dataset size: 13314
+Model size: 94.294368 M
+Traceback (most recent call last):
+  File "d:\Downloads\DS_AI\VDT\MoE\moe\train.py", line 50, in <module>
+    trainer.train_model()
+  File "d:\Downloads\DS_AI\VDT\MoE\moe\trainer.py", line 47, in train_model
+    input_ids = batch['input_ids'].to(self.device)
+                                      ^^^^^^^^^^^
+AttributeError: 'Trainer' object has no attribute 'device'

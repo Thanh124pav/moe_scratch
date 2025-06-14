@@ -1,0 +1,490 @@
+2025-06-14 18:16:19,239 INFO    StreamThr :1300 [internal.py:wandb_internal():85] W&B internal server running at pid: 1300, started at: 2025-06-14 18:16:19.238854
+2025-06-14 18:16:19,241 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: status
+2025-06-14 18:16:19,244 INFO    WriterThread:1300 [datastore.py:open_for_write():87] open: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\run-z10758ar.wandb
+2025-06-14 18:16:19,245 DEBUG   SenderThread:1300 [sender.py:send():379] send: header
+2025-06-14 18:16:19,311 DEBUG   SenderThread:1300 [sender.py:send():379] send: run
+2025-06-14 18:16:20,085 INFO    SenderThread:1300 [dir_watcher.py:__init__():211] watching files in: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files
+2025-06-14 18:16:20,085 INFO    SenderThread:1300 [sender.py:_start_run_threads():1188] run started: z10758ar with start time 1749899779.240846
+2025-06-14 18:16:20,097 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: check_version
+2025-06-14 18:16:20,097 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: check_version
+2025-06-14 18:16:20,557 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: run_start
+2025-06-14 18:16:20,598 DEBUG   HandlerThread:1300 [system_info.py:__init__():26] System info init
+2025-06-14 18:16:20,598 DEBUG   HandlerThread:1300 [system_info.py:__init__():41] System info init done
+2025-06-14 18:16:20,598 INFO    HandlerThread:1300 [system_monitor.py:start():194] Starting system monitor
+2025-06-14 18:16:20,599 INFO    SystemMonitor:1300 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2025-06-14 18:16:20,599 INFO    HandlerThread:1300 [system_monitor.py:probe():214] Collecting system info
+2025-06-14 18:16:20,643 INFO    SystemMonitor:1300 [interfaces.py:start():188] Started cpu monitoring
+2025-06-14 18:16:20,644 INFO    SystemMonitor:1300 [interfaces.py:start():188] Started disk monitoring
+2025-06-14 18:16:20,646 INFO    SystemMonitor:1300 [interfaces.py:start():188] Started gpu monitoring
+2025-06-14 18:16:20,647 INFO    SystemMonitor:1300 [interfaces.py:start():188] Started memory monitoring
+2025-06-14 18:16:20,659 INFO    SystemMonitor:1300 [interfaces.py:start():188] Started network monitoring
+2025-06-14 18:16:20,664 DEBUG   HandlerThread:1300 [system_info.py:probe():152] Probing system
+2025-06-14 18:16:20,665 DEBUG   HandlerThread:1300 [system_info.py:_probe_git():137] Probing git
+2025-06-14 18:16:20,814 DEBUG   HandlerThread:1300 [system_info.py:_probe_git():145] Probing git done
+2025-06-14 18:16:20,814 DEBUG   HandlerThread:1300 [system_info.py:probe():200] Probing system done
+2025-06-14 18:16:20,814 DEBUG   HandlerThread:1300 [system_monitor.py:probe():223] {'os': 'Windows-10-10.0.22631-SP0', 'python': '3.11.5', 'heartbeatAt': '2025-06-14T11:16:20.664894', 'startedAt': '2025-06-14T11:16:19.231345', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': 'd:\\Downloads\\DS_AI\\VDT\\MoE\\moe\\train.py', 'codePathLocal': 'train.py', 'codePath': 'train.py', 'git': {'remote': 'https://github.com/Thanh124pav/moe_scratch.git', 'commit': '554378e970ad38412e6e5a33e94a87f31ec3d87b'}, 'email': 'phamvanthanh.csp@gmail.com', 'root': 'D:/Downloads/DS_AI/VDT/MoE/moe', 'host': 'ASUS-newMe', 'username': 'PAVT', 'executable': 'D:\\Anaconda3\\python.exe', 'cpu_count': 6, 'cpu_count_logical': 12, 'cpu_freq': {'current': 3001.0, 'min': 0.0, 'max': 3001.0}, 'cpu_freq_per_core': [{'current': 3001.0, 'min': 0.0, 'max': 3001.0}], 'disk': {'/': {'total': 249.02245712280273, 'used': 214.0762710571289}}, 'gpu': 'NVIDIA GeForce GTX 1650', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce GTX 1650', 'memory_total': 4294967296}], 'memory': {'total': 7.420848846435547}}
+2025-06-14 18:16:20,814 INFO    HandlerThread:1300 [system_monitor.py:probe():224] Finished collecting system info
+2025-06-14 18:16:20,814 INFO    HandlerThread:1300 [system_monitor.py:probe():227] Publishing system info
+2025-06-14 18:16:20,814 DEBUG   HandlerThread:1300 [system_info.py:_save_conda():209] Saving list of conda packages installed into the current environment
+2025-06-14 18:16:21,096 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\conda-environment.yaml
+2025-06-14 18:16:35,843 ERROR   HandlerThread:1300 [system_info.py:_save_conda():223] Error saving conda packages: Command '['conda', 'env', 'export']' timed out after 15 seconds
+Traceback (most recent call last):
+  File "D:\Anaconda3\Lib\site-packages\wandb\sdk\internal\system\system_info.py", line 216, in _save_conda
+    subprocess.call(
+  File "D:\Anaconda3\Lib\subprocess.py", line 391, in call
+    return p.wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\Lib\subprocess.py", line 1264, in wait
+    return self._wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\Lib\subprocess.py", line 1591, in _wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['conda', 'env', 'export']' timed out after 15 seconds
+2025-06-14 18:16:35,846 DEBUG   HandlerThread:1300 [system_info.py:_save_conda():224] Saving conda packages done
+2025-06-14 18:16:35,848 INFO    HandlerThread:1300 [system_monitor.py:probe():229] Finished publishing system info
+2025-06-14 18:16:35,872 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:16:35,872 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: keepalive
+2025-06-14 18:16:35,872 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:16:35,872 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: keepalive
+2025-06-14 18:16:35,872 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:16:35,872 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: keepalive
+2025-06-14 18:16:35,873 DEBUG   SenderThread:1300 [sender.py:send():379] send: files
+2025-06-14 18:16:35,873 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-metadata.json with policy now
+2025-06-14 18:16:36,198 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-metadata.json
+2025-06-14 18:16:36,712 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: python_packages
+2025-06-14 18:16:36,712 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: python_packages
+2025-06-14 18:16:36,714 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-14 18:16:36,716 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: stop_status
+2025-06-14 18:16:36,718 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:16:36,877 INFO    wandb-upload_0:1300 [upload_job.py:push():130] Uploaded file C:\Users\PAVT\AppData\Local\Temp\tmpzkflqnq5wandb\iyzspkz3-wandb-metadata.json
+2025-06-14 18:16:37,032 DEBUG   SenderThread:1300 [sender.py:send():379] send: telemetry
+2025-06-14 18:16:37,034 DEBUG   SenderThread:1300 [sender.py:send():379] send: telemetry
+2025-06-14 18:16:37,212 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:16:37,212 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\requirements.txt
+2025-06-14 18:16:37,727 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:16:38,733 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:16:39,218 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:16:39,750 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:16:40,494 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:16:40,759 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:16:41,243 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:16:41,772 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:16:42,784 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:16:43,793 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:16:44,802 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:16:45,768 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:16:45,815 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:16:46,829 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:16:47,842 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:16:48,855 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:16:49,869 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:16:50,784 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:16:50,858 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:16:51,365 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\config.yaml
+2025-06-14 18:16:51,720 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-14 18:16:51,721 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: stop_status
+2025-06-14 18:16:51,860 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:16:52,873 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:16:53,387 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\conda-environment.yaml
+2025-06-14 18:16:53,885 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:16:54,883 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:16:55,891 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:16:56,766 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:16:56,905 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:16:57,916 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:16:58,917 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:16:59,927 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:01,021 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:01,788 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:17:02,038 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:03,042 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:03,491 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:17:04,035 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:04,432 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:17:04,433 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:17:04,433 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:17:04,434 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:17:04,497 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:17:05,051 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:06,063 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:06,730 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-14 18:17:06,730 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: stop_status
+2025-06-14 18:17:07,049 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:17:07,070 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:08,079 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:09,089 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:10,101 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:11,111 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:12,119 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:12,820 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:17:13,130 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:14,139 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:15,148 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:15,603 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:17:16,160 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:16,623 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:17:16,626 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:17:16,626 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:17:16,627 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:17:17,173 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:17,626 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:17:17,827 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:17:18,188 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:19,192 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:19,373 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:17:19,374 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:17:19,374 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:17:19,375 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:17:19,648 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:17:19,648 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:17:20,210 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:20,673 DEBUG   SystemMonitor:1300 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2025-06-14 18:17:20,677 DEBUG   SenderThread:1300 [sender.py:send():379] send: stats
+2025-06-14 18:17:21,219 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:21,746 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-14 18:17:21,747 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: stop_status
+2025-06-14 18:17:22,235 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:22,269 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:17:22,269 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:17:22,269 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:17:22,270 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:17:22,670 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:17:23,242 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:23,274 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:17:23,678 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:17:24,252 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:24,657 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:17:24,658 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:17:24,658 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:17:24,659 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:17:24,687 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:17:25,265 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:25,702 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:17:26,273 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:27,289 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:27,712 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:17:27,713 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:17:27,713 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:17:27,714 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:17:27,724 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:17:28,300 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:28,723 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:17:29,313 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:29,742 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:17:30,288 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:17:30,288 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:17:30,289 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:17:30,290 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:17:30,319 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:30,754 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:17:31,325 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:31,760 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:17:32,336 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:33,135 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:17:33,136 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:17:33,136 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:17:33,137 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:17:33,342 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:33,766 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:17:33,767 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:17:34,138 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:17:34,359 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:35,375 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:35,584 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:17:35,585 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:17:35,586 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:17:35,587 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:17:35,787 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:17:36,387 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:36,762 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-14 18:17:36,762 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: stop_status
+2025-06-14 18:17:37,402 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:37,802 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:17:38,392 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:38,432 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:17:38,433 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:17:38,433 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:17:38,434 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:17:38,803 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:17:39,398 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:39,444 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:17:39,831 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:17:40,406 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:40,817 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:17:40,818 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:17:40,818 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:17:40,819 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:17:40,840 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:17:41,416 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:41,854 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:17:42,421 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:43,434 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:43,576 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:17:43,576 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:17:43,576 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:17:43,577 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:17:43,872 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:17:44,443 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:44,584 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:17:45,456 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:45,895 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:17:45,927 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:17:45,927 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:17:45,928 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:17:45,928 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:17:46,470 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:46,904 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:17:47,483 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:47,916 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:17:48,496 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:48,686 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:17:48,687 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:17:48,688 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:17:48,688 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:17:48,925 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:17:49,502 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:49,696 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:17:49,930 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:17:50,508 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:50,680 DEBUG   SenderThread:1300 [sender.py:send():379] send: stats
+2025-06-14 18:17:51,079 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:17:51,080 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:17:51,080 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:17:51,081 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:17:51,520 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:51,769 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-14 18:17:51,770 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: stop_status
+2025-06-14 18:17:51,958 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:17:51,959 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:17:52,531 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:53,547 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:53,856 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:17:53,857 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:17:53,857 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:17:53,858 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:17:53,974 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:17:54,550 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:54,872 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:17:55,559 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:55,996 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:17:56,231 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:17:56,232 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:17:56,232 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:17:56,233 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:17:56,547 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:57,004 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:17:57,563 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:58,012 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:17:58,564 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:58,986 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:17:58,986 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:17:58,987 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:17:58,987 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:17:59,022 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:17:59,580 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:17:59,997 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:18:00,044 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:18:00,603 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:01,432 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:18:01,433 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:18:01,433 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:18:01,435 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:18:01,597 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:02,071 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:18:02,072 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:18:02,614 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:03,615 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:04,222 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:18:04,223 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:18:04,223 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:18:04,224 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:18:04,631 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:05,091 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:18:05,231 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:18:05,638 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:06,103 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:18:06,576 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:18:06,577 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:18:06,578 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:18:06,580 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:18:06,641 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:06,768 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-14 18:18:06,768 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: stop_status
+2025-06-14 18:18:07,115 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:18:07,646 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:08,129 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:18:08,650 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:09,427 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:18:09,427 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:18:09,427 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:18:09,429 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:18:09,649 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:10,146 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:18:10,146 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:18:10,441 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:18:10,661 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:11,676 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:11,786 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:18:11,787 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:18:11,787 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:18:11,789 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:18:12,186 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:18:12,683 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:13,198 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:18:13,679 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:14,567 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:18:14,568 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:18:14,568 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:18:14,569 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:18:14,691 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:15,216 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:18:15,217 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:18:15,574 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:18:15,699 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:16,714 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:16,928 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:18:16,929 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:18:16,930 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:18:16,930 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:18:17,242 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:18:17,243 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:18:17,707 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:18,720 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:19,729 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:19,732 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:18:19,734 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:18:19,734 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:18:19,736 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:18:20,275 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:18:20,684 DEBUG   SenderThread:1300 [sender.py:send():379] send: stats
+2025-06-14 18:18:20,685 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:18:20,730 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:21,291 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:18:21,727 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:21,774 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-14 18:18:21,774 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: stop_status
+2025-06-14 18:18:22,104 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:18:22,105 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:18:22,105 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:18:22,106 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:18:22,300 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:18:22,735 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:23,310 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:18:23,744 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:24,737 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:24,918 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:18:24,919 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:18:24,919 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:18:24,919 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:18:25,327 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:18:25,328 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:18:25,749 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:25,950 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:18:26,756 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:27,337 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:18:27,403 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:18:27,404 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:18:27,405 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:18:27,406 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:18:27,774 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:28,379 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:18:28,786 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:29,800 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:30,619 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:18:30,620 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:18:30,620 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:18:30,622 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:18:30,804 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:31,427 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:18:31,428 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:18:31,630 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:18:31,817 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:32,831 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:33,456 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:18:33,729 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:18:33,730 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:18:33,730 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:18:33,732 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:18:33,841 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:34,468 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:18:34,859 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:35,866 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:36,744 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:18:36,808 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-14 18:18:36,809 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: stop_status
+2025-06-14 18:18:37,123 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:38,149 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:38,412 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:18:38,416 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:18:38,417 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:18:38,418 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:18:38,560 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:18:39,146 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:39,569 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:18:40,176 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:41,168 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:41,660 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:18:41,661 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:18:41,661 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:18:41,665 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:18:42,136 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:18:42,190 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:42,609 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:18:43,180 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:43,616 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:18:44,191 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:44,556 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:18:44,557 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:18:44,557 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:18:44,558 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:18:44,644 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:18:45,196 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:45,646 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:18:46,203 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:46,938 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:18:46,939 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:18:46,939 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:18:46,940 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:18:47,139 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:18:47,216 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:47,676 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:18:47,677 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:18:48,222 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:49,239 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:49,762 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:18:49,763 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:18:49,763 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:18:49,764 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:18:50,266 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:50,707 DEBUG   SenderThread:1300 [sender.py:send():379] send: stats
+2025-06-14 18:18:50,709 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:18:51,269 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:51,721 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:18:51,814 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-14 18:18:51,814 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: stop_status
+2025-06-14 18:18:52,126 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:18:52,127 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:18:52,128 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:18:52,130 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:18:52,145 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:18:52,283 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:52,738 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:18:53,298 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:53,747 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:18:54,306 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:54,952 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:18:54,954 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:18:54,954 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:18:54,955 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:18:55,310 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:55,777 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:18:55,777 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json
+2025-06-14 18:18:56,321 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:57,149 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:18:57,335 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:18:57,504 DEBUG   HandlerThread:1300 [handler.py:handle_request():158] handle_request: partial_history
+2025-06-14 18:18:57,504 DEBUG   SenderThread:1300 [sender.py:send():379] send: history
+2025-06-14 18:18:57,505 DEBUG   SenderThread:1300 [sender.py:send_request():406] send_request: summary_record
+2025-06-14 18:18:57,506 INFO    SenderThread:1300 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:18:57,803 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\output.log
+2025-06-14 18:18:57,804 INFO    Thread-16 :1300 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181619-z10758ar\files\wandb-summary.json

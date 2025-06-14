@@ -25,6 +25,9 @@ class EncoderDecoderMoE(nn.Module):
         self.shared_embedding = nn.Embedding(vocab_size, embed_dim)
         self.encoder = Encoder(config, self.shared_embedding)  
         self.decoder = Decoder(config, self.shared_embedding)
+        
+        # Khởi tạo weights - QUAN TRỌNG!
+        self.apply(kaiming_init_weights)
 
 
     def forward(self, input_ids=None, decoder_input_ids=None, labels=None,
@@ -32,11 +35,11 @@ class EncoderDecoderMoE(nn.Module):
                 encoder_outputs=None, attention_mask=None):
 
         if decoder_input_ids is None:
-            decoder_start_token_id = self.pad_token_id
+            decoder_start_token_id = self.decoder_start_token_id
             if labels is not None:
                 decoder_input_ids = labels.new_zeros(labels.shape)
                 decoder_input_ids[:, 1:] = labels[:, :-1]
-                decoder_input_ids[:, 0] = decoder_start_token_id
+                decoder_input_ids[:, 0] = self.decoder_start_token_id
                 decoder_input_ids = torch.where(
                     decoder_input_ids == -100,
                     self.pad_token_id,
@@ -45,7 +48,7 @@ class EncoderDecoderMoE(nn.Module):
             else: 
                 #print("generate")
                 batch_size = input_ids.shape[0]
-                decoder_input_ids = input_ids.new_full((batch_size, 1), decoder_start_token_id)
+                decoder_input_ids = input_ids.new_full((batch_size, 1), self.decoder_start_token_id)
         lb_loss = 0   
         if encoder_outputs is not None:
             #print(encoder_outputs)
@@ -87,36 +90,50 @@ class EncoderDecoderMoE(nn.Module):
     def generate(self, input_ids, context_length, max_new_tokens=256):
         self.eval()
         batch_size = input_ids.shape[0]
-        generated = torch.zeros((batch_size, max_new_tokens), dtype=torch.long, device=input_ids.device)
-        finish = torch.zeros((batch_size,), device=input_ids.device, dtype=torch.bool)
-        # 1. Lưu cache
-        past_key_values = None
-
+        device = input_ids.device
+        
+        # 1. Encode input một lần duy nhất
+        with torch.no_grad():
+            encoder_outputs = self.encoder(input_ids)
+            enc_out = encoder_outputs[0].last_hidden_state  # [batch, seq_len, embed_dim]
+        
+        # 2. Khởi tạo decoder với start token
+        decoder_input_ids = torch.full((batch_size, 1), self.decoder_start_token_id, 
+                                     dtype=torch.long, device=device)
+        
+        generated_tokens = []
+        finished = torch.zeros(batch_size, dtype=torch.bool, device=device)
+        
+        # 3. Generate từng token
         for i in range(max_new_tokens):
-            if i == 0:
-                idx_cond = input_ids[:, -context_length:]
-            else:
-                idx_cond = input_ids[:, -1:]  # Chỉ truyền token mới nhất
-
             with torch.no_grad():
-                output = self(
-                    idx_cond,
-                    past_key_values=past_key_values,
-                    use_cache=True,
-                    decoder_input_ids=input_ids if i == 0 else None  # Tùy forward bạn xử lý decoder_input_ids/inputs thế nào
-                )
-                logits = output.logits
-                logits = logits[:, -1, :]
-                past_key_values = output.past_key_values
-
-            probs = F.softmax(logits, dim=-1)
-            idx_next = torch.multinomial(probs, num_samples=1)
-            generated[:, i] = idx_next.squeeze(-1)
-            input_ids = torch.cat((input_ids, idx_next), dim=-1)
-            finish = torch.logical_or(finish, (idx_next.squeeze(-1) == self.eos_token_id))
-            if finish.all():
-                break
-
+                # Forward pass decoder
+                decoder_out, _, _ = self.decoder(decoder_input_ids, enc_out, None, False)
+                
+                # Get logits for last position
+                logits = torch.matmul(decoder_out[:, -1:], self.shared_embedding.weight.t())
+                
+                # Sample next token
+                probs = F.softmax(logits, dim=-1)
+                next_token = torch.multinomial(probs.squeeze(1), num_samples=1)  # [batch, 1]
+                
+                # Store generated token
+                generated_tokens.append(next_token)
+                
+                # Update decoder input (add new token)
+                decoder_input_ids = torch.cat([decoder_input_ids, next_token], dim=1)
+                
+                # Check for EOS
+                finished = finished | (next_token.squeeze(1) == self.eos_token_id)
+                if finished.all():
+                    break
+        
+        # 4. Combine all generated tokens
+        if generated_tokens:
+            generated = torch.cat(generated_tokens, dim=1)  # [batch, gen_len]
+        else:
+            generated = torch.empty((batch_size, 0), dtype=torch.long, device=device)
+            
         return generated
 
 def kaiming_init_weights(m):

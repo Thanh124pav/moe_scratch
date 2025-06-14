@@ -1,0 +1,26 @@
+
+[34m[1mwandb[39m[22m: [33mWARNING[39m Changes to your `wandb` environment variables will be ignored because your `wandb` session has already started. For more information on how to modify your settings with `wandb.init()` arguments, please refer to [34m[4mhttps://wandb.me/wandb-init[39m[24m.
+Starting data loading...
+  0%|                                                                                        | 0/14978 [00:00<?, ?it/s]
+Train dataset size: 119823
+Eval dataset size: 13314
+  0%|                                                                                        | 0/14978 [00:15<?, ?it/s]
+Traceback (most recent call last):
+  File "d:\Downloads\DS_AI\VDT\MoE\moe\train.py", line 50, in <module>
+    trainer.train_model()
+  File "d:\Downloads\DS_AI\VDT\MoE\moe\trainer.py", line 51, in train_model
+    outputs = self.model(input_ids, labels=labels, attention_mask=attention_mask)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\Lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\Lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Downloads\DS_AI\VDT\MoE\moe\model\moe\decoder_only.py", line 96, in forward
+    loss = F.cross_entropy(shift_logits, shift_labels, ignore_index=-100) + lb_weight * total_lb_loss
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\Lib\site-packages\torch\nn\functional.py", line 3494, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.10 GiB. GPU 0 has a total capacity of 4.00 GiB of which 0 bytes is free. Of the allocated memory 5.72 GiB is allocated by PyTorch, and 103.59 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

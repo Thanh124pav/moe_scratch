@@ -20,8 +20,20 @@ class Block(nn.Module):
         self.ln1 = nn.LayerNorm(n_embed)
         self.ln2 = nn.LayerNorm(n_embed)
 
-    def forward(self, x, past_kv = None, use_cache = False):
-        mha_out, next_kv = self.mha(x,x,x, past_kv, use_cache)
+    def forward(self, x, past_kv=None, use_cache=False, attention_mask=None):
+        B, T, C = x.shape
+        mask = None
+        if not use_cache:
+            # Causal mask: (1, 1, T, T)
+            causal_mask = torch.tril(torch.ones(T, T, device=x.device)).unsqueeze(0).unsqueeze(0)
+            if attention_mask is not None:
+                # attention_mask: (B, T) -> (B, 1, 1, T)
+                attn_mask = attention_mask[:, None, None, :]
+                # Kết hợp causal mask và attention mask (broadcast)
+                mask = (causal_mask.bool() & attn_mask.bool()).to(x.device)
+            else:
+                mask = causal_mask
+        mha_out, next_kv = self.mha(x, x, x, past_kv, use_cache, mask)
         x = self.ln1(x + mha_out)
         out_moe, lb_loss = self.smoe(x)
         x = self.ln2(x + out_moe)
@@ -61,7 +73,7 @@ class MoEDecoderModel(nn.Module):
             past_kv = [None] * len(self.blocks)
         next_kvs = []
         for i, block in enumerate(self.blocks):
-            x, lb_loss, next_kv = block(x, past_kv[i], use_cache)
+            x, lb_loss, next_kv = block(x, past_kv[i], use_cache, attention_mask)
             if use_cache:
                 next_kvs.append(next_kv)
             total_lb_loss += lb_loss
@@ -72,10 +84,16 @@ class MoEDecoderModel(nn.Module):
         loss = None
         
         if labels is not None:
-            B, T, C = logits.shape
-            logits_flat = logits.reshape(B*T, C)
-            labels_flat = labels.reshape(B*T)
-            loss = F.cross_entropy(logits_flat, labels_flat) + lb_weight * total_lb_loss
+            # Shift logits và labels cho causal LM (như GPT)
+            shift_logits = logits[..., :-1, :].contiguous()
+            shift_labels = labels[..., 1:].contiguous()
+            
+            # Flatten để tính loss
+            shift_logits = shift_logits.view(-1, shift_logits.size(-1))
+            shift_labels = shift_labels.view(-1)
+            
+            # Cross entropy với ignore_index=-100 (mask source tokens)
+            loss = F.cross_entropy(shift_logits, shift_labels, ignore_index=-100) + lb_weight * total_lb_loss
             
 
                 
@@ -84,29 +102,59 @@ class MoEDecoderModel(nn.Module):
         return Seq2SeqLMOutput(logits=logits, loss=loss)
     
     @torch.no_grad
-    def generate(self, input_ids, context_length,  max_new_tokens = 128):
+    def generate(self, input_ids, max_length=None, max_new_tokens=128, context_length=None, 
+                 pad_token_id=None, eos_token_id=None, **kwargs):
+        """
+        Generate method compatible với Seq2SeqTrainer
+        
+        Args:
+            input_ids: Source tokens (for decoder-only, cần add separator)
+            max_length: Max total length 
+            max_new_tokens: Max tokens to generate
+            context_length: Context length to use (fallback)
+        """
         self.eval()
         batch_size = input_ids.shape[0]
+        
+        # Handle parameters
+        if context_length is None:
+            context_length = input_ids.shape[1]  # Use all input
+        if max_length is not None:
+            max_new_tokens = max_length - input_ids.shape[1]
+        if eos_token_id is None:
+            eos_token_id = self.eos_token_id
+            
+        # For decoder-only generation with source-only input từ Seq2SeqTrainer
+        # Cần thêm separator token nếu chỉ có source
+        # Giả sử tokenizer có sep_token hoặc dùng eos_token làm separator
+        
         generated = torch.zeros((batch_size, max_new_tokens), dtype=torch.long, device=input_ids.device)
-        finish = torch.zeros((batch_size,), device = input_ids.device) 
-        idx_cond = input_ids[:, -context_length : ] 
+        finish = torch.zeros((batch_size,), device=input_ids.device, dtype=torch.bool) 
+        idx_cond = input_ids[:, -context_length:] 
         past_kv = None
+        
         for i in range(max_new_tokens):
             if past_kv is None: 
                 input_step = idx_cond
             else: 
                 input_step = idx_cond[:, -1:].contiguous()
+                
             output, next_kvs = self(input_step, use_cache=True, past_kv=past_kv)
             logits = output.logits[:, -1, :]
-            probs = F.softmax(logits, dim = -1) 
-            idx_next = torch.multinomial(probs, num_samples=1)
+            
+            # Simple greedy decoding (có thể thay bằng sampling)
+            logits = F.softmax(logits, dim=-1)
+            idx_next = torch.argmax(logits, dim=-1, keepdim=True)
+            
             generated[:, i] = idx_next.squeeze(-1)
-            idx_cond = torch.cat((idx_cond, idx_next), dim = -1)
+            idx_cond = torch.cat((idx_cond, idx_next), dim=-1)
             past_kv = next_kvs
-            check_end = (idx_next == self.eos_token_id).int()
+            
+            check_end = (idx_next.squeeze(-1) == eos_token_id)
             finish = torch.logical_or(finish, check_end)
             if finish.all():
                 break
+                
         return generated
 
 def kaiming_init_weights(m):

@@ -1,0 +1,13 @@
+
+[34m[1mwandb[39m[22m: [33mWARNING[39m Changes to your `wandb` environment variables will be ignored because your `wandb` session has already started. For more information on how to modify your settings with `wandb.init()` arguments, please refer to [34m[4mhttps://wandb.me/wandb-init[39m[24m.
+Starting data loading...
+Train dataset size: 119823
+Eval dataset size: 13314
+Model size: 94.294368 M
+Traceback (most recent call last):
+  File "d:\Downloads\DS_AI\VDT\MoE\moe\train.py", line 50, in <module>
+    trainer.train_model()
+  File "d:\Downloads\DS_AI\VDT\MoE\moe\trainer.py", line 36, in train_model
+    train_dataloader = DataLoader(train_dataset,self.data_collator, batch_size=self.batch_size, shuffle=True)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: DataLoader.__init__() got multiple values for argument 'batch_size'

@@ -1,0 +1,12 @@
+[34m[1mwandb[39m[22m: [33mWARNING[39m Changes to your `wandb` environment variables will be ignored because your `wandb` session has already started. For more information on how to modify your settings with `wandb.init()` arguments, please refer to [34m[4mhttps://wandb.me/wandb-init[39m[24m.
+Traceback (most recent call last):
+  File "d:\Downloads\DS_AI\VDT\MoE\moe\train.py", line 49, in <module>
+    trainer = Trainer(model,data_collator,config)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Downloads\DS_AI\VDT\MoE\moe\trainer.py", line 22, in __init__
+    self.info_model = config.info_model
+                      ^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\Lib\site-packages\transformers\configuration_utils.py", line 211, in __getattribute__
+    return super().__getattribute__(key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'PretrainedConfig' object has no attribute 'info_model'

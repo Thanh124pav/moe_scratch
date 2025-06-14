@@ -1,0 +1,255 @@
+2025-06-14 18:14:29,483 INFO    StreamThr :20820 [internal.py:wandb_internal():85] W&B internal server running at pid: 20820, started at: 2025-06-14 18:14:29.481912
+2025-06-14 18:14:29,486 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: status
+2025-06-14 18:14:29,489 INFO    WriterThread:20820 [datastore.py:open_for_write():87] open: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181429-ihrtmqcj\run-ihrtmqcj.wandb
+2025-06-14 18:14:29,492 DEBUG   SenderThread:20820 [sender.py:send():379] send: header
+2025-06-14 18:14:29,560 DEBUG   SenderThread:20820 [sender.py:send():379] send: run
+2025-06-14 18:14:30,319 INFO    SenderThread:20820 [dir_watcher.py:__init__():211] watching files in: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181429-ihrtmqcj\files
+2025-06-14 18:14:30,319 INFO    SenderThread:20820 [sender.py:_start_run_threads():1188] run started: ihrtmqcj with start time 1749899669.481912
+2025-06-14 18:14:30,331 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: check_version
+2025-06-14 18:14:30,331 DEBUG   SenderThread:20820 [sender.py:send_request():406] send_request: check_version
+2025-06-14 18:14:30,810 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: run_start
+2025-06-14 18:14:30,840 DEBUG   HandlerThread:20820 [system_info.py:__init__():26] System info init
+2025-06-14 18:14:30,840 DEBUG   HandlerThread:20820 [system_info.py:__init__():41] System info init done
+2025-06-14 18:14:30,840 INFO    HandlerThread:20820 [system_monitor.py:start():194] Starting system monitor
+2025-06-14 18:14:30,842 INFO    SystemMonitor:20820 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2025-06-14 18:14:30,842 INFO    HandlerThread:20820 [system_monitor.py:probe():214] Collecting system info
+2025-06-14 18:14:30,909 INFO    SystemMonitor:20820 [interfaces.py:start():188] Started cpu monitoring
+2025-06-14 18:14:30,911 INFO    SystemMonitor:20820 [interfaces.py:start():188] Started disk monitoring
+2025-06-14 18:14:30,913 INFO    SystemMonitor:20820 [interfaces.py:start():188] Started gpu monitoring
+2025-06-14 18:14:30,914 INFO    SystemMonitor:20820 [interfaces.py:start():188] Started memory monitoring
+2025-06-14 18:14:30,926 INFO    SystemMonitor:20820 [interfaces.py:start():188] Started network monitoring
+2025-06-14 18:14:30,932 DEBUG   HandlerThread:20820 [system_info.py:probe():152] Probing system
+2025-06-14 18:14:30,933 DEBUG   HandlerThread:20820 [system_info.py:_probe_git():137] Probing git
+2025-06-14 18:14:31,085 DEBUG   HandlerThread:20820 [system_info.py:_probe_git():145] Probing git done
+2025-06-14 18:14:31,085 DEBUG   HandlerThread:20820 [system_info.py:probe():200] Probing system done
+2025-06-14 18:14:31,085 DEBUG   HandlerThread:20820 [system_monitor.py:probe():223] {'os': 'Windows-10-10.0.22631-SP0', 'python': '3.11.5', 'heartbeatAt': '2025-06-14T11:14:30.932275', 'startedAt': '2025-06-14T11:14:29.468250', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': 'd:\\Downloads\\DS_AI\\VDT\\MoE\\moe\\train.py', 'codePathLocal': 'train.py', 'codePath': 'train.py', 'git': {'remote': 'https://github.com/Thanh124pav/moe_scratch.git', 'commit': '554378e970ad38412e6e5a33e94a87f31ec3d87b'}, 'email': 'phamvanthanh.csp@gmail.com', 'root': 'D:/Downloads/DS_AI/VDT/MoE/moe', 'host': 'ASUS-newMe', 'username': 'PAVT', 'executable': 'D:\\Anaconda3\\python.exe', 'cpu_count': 6, 'cpu_count_logical': 12, 'cpu_freq': {'current': 3001.0, 'min': 0.0, 'max': 3001.0}, 'cpu_freq_per_core': [{'current': 3001.0, 'min': 0.0, 'max': 3001.0}], 'disk': {'/': {'total': 249.02245712280273, 'used': 214.07617568969727}}, 'gpu': 'NVIDIA GeForce GTX 1650', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce GTX 1650', 'memory_total': 4294967296}], 'memory': {'total': 7.420848846435547}}
+2025-06-14 18:14:31,086 INFO    HandlerThread:20820 [system_monitor.py:probe():224] Finished collecting system info
+2025-06-14 18:14:31,086 INFO    HandlerThread:20820 [system_monitor.py:probe():227] Publishing system info
+2025-06-14 18:14:31,086 DEBUG   HandlerThread:20820 [system_info.py:_save_conda():209] Saving list of conda packages installed into the current environment
+2025-06-14 18:14:31,322 INFO    Thread-16 :20820 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181429-ihrtmqcj\files\conda-environment.yaml
+2025-06-14 18:14:46,109 ERROR   HandlerThread:20820 [system_info.py:_save_conda():223] Error saving conda packages: Command '['conda', 'env', 'export']' timed out after 15 seconds
+Traceback (most recent call last):
+  File "D:\Anaconda3\Lib\site-packages\wandb\sdk\internal\system\system_info.py", line 216, in _save_conda
+    subprocess.call(
+  File "D:\Anaconda3\Lib\subprocess.py", line 391, in call
+    return p.wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\Lib\subprocess.py", line 1264, in wait
+    return self._wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\Lib\subprocess.py", line 1591, in _wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['conda', 'env', 'export']' timed out after 15 seconds
+2025-06-14 18:14:46,112 DEBUG   HandlerThread:20820 [system_info.py:_save_conda():224] Saving conda packages done
+2025-06-14 18:14:46,113 INFO    HandlerThread:20820 [system_monitor.py:probe():229] Finished publishing system info
+2025-06-14 18:14:46,126 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:14:46,126 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: keepalive
+2025-06-14 18:14:46,126 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:14:46,126 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: keepalive
+2025-06-14 18:14:46,126 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:14:46,127 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: keepalive
+2025-06-14 18:14:46,127 DEBUG   SenderThread:20820 [sender.py:send():379] send: files
+2025-06-14 18:14:46,127 INFO    SenderThread:20820 [sender.py:_save_file():1454] saving file wandb-metadata.json with policy now
+2025-06-14 18:14:46,447 INFO    Thread-16 :20820 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181429-ihrtmqcj\files\wandb-metadata.json
+2025-06-14 18:14:46,977 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: python_packages
+2025-06-14 18:14:46,978 DEBUG   SenderThread:20820 [sender.py:send_request():406] send_request: python_packages
+2025-06-14 18:14:46,980 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-14 18:14:46,980 DEBUG   SenderThread:20820 [sender.py:send_request():406] send_request: stop_status
+2025-06-14 18:14:46,982 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:14:47,181 INFO    wandb-upload_0:20820 [upload_job.py:push():130] Uploaded file C:\Users\PAVT\AppData\Local\Temp\tmpgveaemw0wandb\spa8i9p1-wandb-metadata.json
+2025-06-14 18:14:47,203 DEBUG   SenderThread:20820 [sender.py:send():379] send: telemetry
+2025-06-14 18:14:47,206 DEBUG   SenderThread:20820 [sender.py:send():379] send: telemetry
+2025-06-14 18:14:47,462 INFO    Thread-16 :20820 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181429-ihrtmqcj\files\requirements.txt
+2025-06-14 18:14:47,462 INFO    Thread-16 :20820 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181429-ihrtmqcj\files\output.log
+2025-06-14 18:14:47,994 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:14:48,986 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:14:49,486 INFO    Thread-16 :20820 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181429-ihrtmqcj\files\output.log
+2025-06-14 18:14:50,001 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:14:50,488 INFO    Thread-16 :20820 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181429-ihrtmqcj\files\output.log
+2025-06-14 18:14:50,893 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:14:51,017 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:14:52,019 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:14:53,031 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:14:54,043 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:14:55,046 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:14:56,026 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:14:56,056 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:14:57,067 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:14:58,076 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:14:59,090 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:14:59,590 INFO    Thread-16 :20820 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181429-ihrtmqcj\files\conda-environment.yaml
+2025-06-14 18:15:00,101 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:15:01,036 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:15:01,111 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:15:01,608 INFO    Thread-16 :20820 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181429-ihrtmqcj\files\config.yaml
+2025-06-14 18:15:01,990 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-14 18:15:01,991 DEBUG   SenderThread:20820 [sender.py:send_request():406] send_request: stop_status
+2025-06-14 18:15:02,119 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:15:03,132 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:15:03,631 INFO    Thread-16 :20820 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181429-ihrtmqcj\files\output.log
+2025-06-14 18:15:04,144 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:15:04,642 INFO    Thread-16 :20820 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181429-ihrtmqcj\files\output.log
+2025-06-14 18:15:05,156 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:15:06,170 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:15:06,310 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:15:07,176 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:15:08,190 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:15:09,341 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:15:10,238 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:15:11,255 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:15:12,037 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:15:12,278 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:15:13,242 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:15:14,233 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:15:15,247 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:15:16,242 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:15:17,005 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-14 18:15:17,010 DEBUG   SenderThread:20820 [sender.py:send_request():406] send_request: stop_status
+2025-06-14 18:15:17,256 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:15:17,379 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:15:17,657 DEBUG   SenderThread:20820 [sender.py:send():379] send: exit
+2025-06-14 18:15:17,658 INFO    SenderThread:20820 [sender.py:send_exit():586] handling exit code: 1
+2025-06-14 18:15:17,665 INFO    SenderThread:20820 [sender.py:send_exit():588] handling runtime: 46
+2025-06-14 18:15:17,671 INFO    SenderThread:20820 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:15:17,674 INFO    SenderThread:20820 [sender.py:send_exit():594] send defer
+2025-06-14 18:15:17,675 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: defer
+2025-06-14 18:15:17,678 INFO    HandlerThread:20820 [handler.py:handle_request_defer():184] handle defer: 0
+2025-06-14 18:15:17,679 DEBUG   SenderThread:20820 [sender.py:send_request():406] send_request: defer
+2025-06-14 18:15:17,680 INFO    SenderThread:20820 [sender.py:send_request_defer():610] handle sender defer: 0
+2025-06-14 18:15:17,692 INFO    SenderThread:20820 [sender.py:transition_state():614] send defer: 1
+2025-06-14 18:15:17,693 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: defer
+2025-06-14 18:15:17,693 INFO    HandlerThread:20820 [handler.py:handle_request_defer():184] handle defer: 1
+2025-06-14 18:15:17,694 DEBUG   SenderThread:20820 [sender.py:send_request():406] send_request: defer
+2025-06-14 18:15:17,694 INFO    SenderThread:20820 [sender.py:send_request_defer():610] handle sender defer: 1
+2025-06-14 18:15:17,694 INFO    SenderThread:20820 [sender.py:transition_state():614] send defer: 2
+2025-06-14 18:15:17,694 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: defer
+2025-06-14 18:15:17,694 INFO    HandlerThread:20820 [handler.py:handle_request_defer():184] handle defer: 2
+2025-06-14 18:15:17,697 INFO    HandlerThread:20820 [system_monitor.py:finish():203] Stopping system monitor
+2025-06-14 18:15:17,715 DEBUG   SystemMonitor:20820 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2025-06-14 18:15:17,716 DEBUG   SystemMonitor:20820 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2025-06-14 18:15:17,717 INFO    HandlerThread:20820 [interfaces.py:finish():200] Joined cpu monitor
+2025-06-14 18:15:17,717 DEBUG   SystemMonitor:20820 [system_monitor.py:_start():183] Publishing last batch of metrics
+2025-06-14 18:15:17,718 INFO    HandlerThread:20820 [interfaces.py:finish():200] Joined disk monitor
+2025-06-14 18:15:17,849 INFO    HandlerThread:20820 [interfaces.py:finish():200] Joined gpu monitor
+2025-06-14 18:15:17,850 INFO    HandlerThread:20820 [interfaces.py:finish():200] Joined memory monitor
+2025-06-14 18:15:17,850 INFO    HandlerThread:20820 [interfaces.py:finish():200] Joined network monitor
+2025-06-14 18:15:17,851 DEBUG   SenderThread:20820 [sender.py:send_request():406] send_request: defer
+2025-06-14 18:15:17,851 INFO    SenderThread:20820 [sender.py:send_request_defer():610] handle sender defer: 2
+2025-06-14 18:15:17,851 INFO    SenderThread:20820 [sender.py:transition_state():614] send defer: 3
+2025-06-14 18:15:17,851 DEBUG   SenderThread:20820 [sender.py:send():379] send: stats
+2025-06-14 18:15:17,851 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: defer
+2025-06-14 18:15:17,854 INFO    HandlerThread:20820 [handler.py:handle_request_defer():184] handle defer: 3
+2025-06-14 18:15:17,854 DEBUG   SenderThread:20820 [sender.py:send_request():406] send_request: defer
+2025-06-14 18:15:17,854 INFO    SenderThread:20820 [sender.py:send_request_defer():610] handle sender defer: 3
+2025-06-14 18:15:17,854 INFO    SenderThread:20820 [sender.py:transition_state():614] send defer: 4
+2025-06-14 18:15:17,854 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: defer
+2025-06-14 18:15:17,854 INFO    HandlerThread:20820 [handler.py:handle_request_defer():184] handle defer: 4
+2025-06-14 18:15:17,854 DEBUG   SenderThread:20820 [sender.py:send_request():406] send_request: defer
+2025-06-14 18:15:17,856 INFO    SenderThread:20820 [sender.py:send_request_defer():610] handle sender defer: 4
+2025-06-14 18:15:17,856 INFO    SenderThread:20820 [sender.py:transition_state():614] send defer: 5
+2025-06-14 18:15:17,856 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: defer
+2025-06-14 18:15:17,856 INFO    HandlerThread:20820 [handler.py:handle_request_defer():184] handle defer: 5
+2025-06-14 18:15:17,857 DEBUG   SenderThread:20820 [sender.py:send():379] send: summary
+2025-06-14 18:15:17,858 INFO    SenderThread:20820 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-14 18:15:17,859 DEBUG   SenderThread:20820 [sender.py:send_request():406] send_request: defer
+2025-06-14 18:15:17,859 INFO    SenderThread:20820 [sender.py:send_request_defer():610] handle sender defer: 5
+2025-06-14 18:15:17,859 INFO    SenderThread:20820 [sender.py:transition_state():614] send defer: 6
+2025-06-14 18:15:17,859 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: defer
+2025-06-14 18:15:17,860 INFO    HandlerThread:20820 [handler.py:handle_request_defer():184] handle defer: 6
+2025-06-14 18:15:17,860 DEBUG   SenderThread:20820 [sender.py:send_request():406] send_request: defer
+2025-06-14 18:15:17,860 INFO    SenderThread:20820 [sender.py:send_request_defer():610] handle sender defer: 6
+2025-06-14 18:15:17,860 INFO    SenderThread:20820 [sender.py:transition_state():614] send defer: 7
+2025-06-14 18:15:17,860 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: status_report
+2025-06-14 18:15:17,861 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: defer
+2025-06-14 18:15:17,861 INFO    HandlerThread:20820 [handler.py:handle_request_defer():184] handle defer: 7
+2025-06-14 18:15:17,861 DEBUG   SenderThread:20820 [sender.py:send_request():406] send_request: defer
+2025-06-14 18:15:17,861 INFO    SenderThread:20820 [sender.py:send_request_defer():610] handle sender defer: 7
+2025-06-14 18:15:18,209 INFO    Thread-16 :20820 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181429-ihrtmqcj\files\wandb-summary.json
+2025-06-14 18:15:18,667 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: poll_exit
+2025-06-14 18:15:20,140 INFO    SenderThread:20820 [sender.py:transition_state():614] send defer: 8
+2025-06-14 18:15:20,140 DEBUG   SenderThread:20820 [sender.py:send_request():406] send_request: poll_exit
+2025-06-14 18:15:20,140 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: defer
+2025-06-14 18:15:20,143 INFO    HandlerThread:20820 [handler.py:handle_request_defer():184] handle defer: 8
+2025-06-14 18:15:20,145 DEBUG   SenderThread:20820 [sender.py:send_request():406] send_request: defer
+2025-06-14 18:15:20,145 INFO    SenderThread:20820 [sender.py:send_request_defer():610] handle sender defer: 8
+2025-06-14 18:15:20,151 INFO    SenderThread:20820 [job_builder.py:build():440] Attempting to build job artifact
+2025-06-14 18:15:20,154 INFO    SenderThread:20820 [job_builder.py:_get_source_type():569] is repo sourced job
+2025-06-14 18:15:20,227 INFO    Thread-16 :20820 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181429-ihrtmqcj\files\output.log
+2025-06-14 18:15:20,688 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: poll_exit
+2025-06-14 18:15:20,880 INFO    SenderThread:20820 [job_builder.py:build():545] adding wandb-job metadata file
+2025-06-14 18:15:20,921 INFO    SenderThread:20820 [sender.py:transition_state():614] send defer: 9
+2025-06-14 18:15:20,922 DEBUG   SenderThread:20820 [sender.py:send_request():406] send_request: poll_exit
+2025-06-14 18:15:20,922 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: defer
+2025-06-14 18:15:20,923 DEBUG   SenderThread:20820 [sender.py:send():379] send: artifact
+2025-06-14 18:15:20,923 INFO    HandlerThread:20820 [handler.py:handle_request_defer():184] handle defer: 9
+2025-06-14 18:15:21,775 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: poll_exit
+2025-06-14 18:15:22,122 INFO    SenderThread:20820 [sender.py:send_artifact():1530] sent artifact job-https___github.com_Thanh124pav_moe_scratch.git_train.py - {'id': 'QXJ0aWZhY3Q6MTgwNjAwNzE2MA==', 'state': 'COMMITTED', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjY1NTI3NTkyOA==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6MTgwNjAwNzE2MA==', 'versionIndex': 0}}}
+2025-06-14 18:15:22,122 DEBUG   SenderThread:20820 [sender.py:send_request():406] send_request: defer
+2025-06-14 18:15:22,122 INFO    SenderThread:20820 [sender.py:send_request_defer():610] handle sender defer: 9
+2025-06-14 18:15:22,122 INFO    SenderThread:20820 [dir_watcher.py:finish():358] shutting down directory watcher
+2025-06-14 18:15:22,241 INFO    SenderThread:20820 [dir_watcher.py:finish():388] scan: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181429-ihrtmqcj\files
+2025-06-14 18:15:22,242 INFO    SenderThread:20820 [dir_watcher.py:finish():402] scan save: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181429-ihrtmqcj\files\conda-environment.yaml conda-environment.yaml
+2025-06-14 18:15:22,242 INFO    SenderThread:20820 [dir_watcher.py:finish():402] scan save: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181429-ihrtmqcj\files\config.yaml config.yaml
+2025-06-14 18:15:22,242 INFO    SenderThread:20820 [dir_watcher.py:finish():402] scan save: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181429-ihrtmqcj\files\output.log output.log
+2025-06-14 18:15:22,247 INFO    SenderThread:20820 [dir_watcher.py:finish():402] scan save: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181429-ihrtmqcj\files\requirements.txt requirements.txt
+2025-06-14 18:15:22,248 INFO    SenderThread:20820 [dir_watcher.py:finish():402] scan save: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181429-ihrtmqcj\files\wandb-metadata.json wandb-metadata.json
+2025-06-14 18:15:22,248 INFO    SenderThread:20820 [dir_watcher.py:finish():402] scan save: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181429-ihrtmqcj\files\wandb-summary.json wandb-summary.json
+2025-06-14 18:15:22,249 INFO    SenderThread:20820 [sender.py:transition_state():614] send defer: 10
+2025-06-14 18:15:22,249 DEBUG   SenderThread:20820 [sender.py:send_request():406] send_request: poll_exit
+2025-06-14 18:15:22,249 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: defer
+2025-06-14 18:15:22,249 INFO    HandlerThread:20820 [handler.py:handle_request_defer():184] handle defer: 10
+2025-06-14 18:15:22,254 DEBUG   SenderThread:20820 [sender.py:send_request():406] send_request: defer
+2025-06-14 18:15:22,255 INFO    SenderThread:20820 [sender.py:send_request_defer():610] handle sender defer: 10
+2025-06-14 18:15:22,255 INFO    SenderThread:20820 [file_pusher.py:finish():169] shutting down file pusher
+2025-06-14 18:15:22,784 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: poll_exit
+2025-06-14 18:15:22,785 DEBUG   SenderThread:20820 [sender.py:send_request():406] send_request: poll_exit
+2025-06-14 18:15:22,867 INFO    wandb-upload_0:20820 [upload_job.py:push():130] Uploaded file D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181429-ihrtmqcj\files\conda-environment.yaml
+2025-06-14 18:15:23,322 INFO    wandb-upload_4:20820 [upload_job.py:push():130] Uploaded file D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181429-ihrtmqcj\files\wandb-summary.json
+2025-06-14 18:15:23,671 INFO    wandb-upload_1:20820 [upload_job.py:push():130] Uploaded file D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181429-ihrtmqcj\files\config.yaml
+2025-06-14 18:15:23,681 INFO    wandb-upload_2:20820 [upload_job.py:push():130] Uploaded file D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181429-ihrtmqcj\files\output.log
+2025-06-14 18:15:23,715 INFO    wandb-upload_3:20820 [upload_job.py:push():130] Uploaded file D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181429-ihrtmqcj\files\requirements.txt
+2025-06-14 18:15:23,787 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: poll_exit
+2025-06-14 18:15:23,788 DEBUG   SenderThread:20820 [sender.py:send_request():406] send_request: poll_exit
+2025-06-14 18:15:23,926 INFO    Thread-15 (_thread_body):20820 [sender.py:transition_state():614] send defer: 11
+2025-06-14 18:15:23,926 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: defer
+2025-06-14 18:15:23,927 INFO    HandlerThread:20820 [handler.py:handle_request_defer():184] handle defer: 11
+2025-06-14 18:15:23,927 DEBUG   SenderThread:20820 [sender.py:send_request():406] send_request: defer
+2025-06-14 18:15:23,927 INFO    SenderThread:20820 [sender.py:send_request_defer():610] handle sender defer: 11
+2025-06-14 18:15:23,927 INFO    SenderThread:20820 [file_pusher.py:join():175] waiting for file pusher
+2025-06-14 18:15:23,967 INFO    SenderThread:20820 [sender.py:transition_state():614] send defer: 12
+2025-06-14 18:15:23,968 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: defer
+2025-06-14 18:15:23,968 INFO    HandlerThread:20820 [handler.py:handle_request_defer():184] handle defer: 12
+2025-06-14 18:15:23,968 DEBUG   SenderThread:20820 [sender.py:send_request():406] send_request: defer
+2025-06-14 18:15:23,968 INFO    SenderThread:20820 [sender.py:send_request_defer():610] handle sender defer: 12
+2025-06-14 18:15:23,968 INFO    SenderThread:20820 [file_stream.py:finish():601] file stream finish called
+2025-06-14 18:15:24,183 INFO    SenderThread:20820 [file_stream.py:finish():605] file stream finish is done
+2025-06-14 18:15:24,183 INFO    SenderThread:20820 [sender.py:transition_state():614] send defer: 13
+2025-06-14 18:15:24,184 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: defer
+2025-06-14 18:15:24,184 INFO    HandlerThread:20820 [handler.py:handle_request_defer():184] handle defer: 13
+2025-06-14 18:15:24,184 DEBUG   SenderThread:20820 [sender.py:send_request():406] send_request: defer
+2025-06-14 18:15:24,184 INFO    SenderThread:20820 [sender.py:send_request_defer():610] handle sender defer: 13
+2025-06-14 18:15:24,185 INFO    SenderThread:20820 [sender.py:transition_state():614] send defer: 14
+2025-06-14 18:15:24,186 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: defer
+2025-06-14 18:15:24,186 INFO    HandlerThread:20820 [handler.py:handle_request_defer():184] handle defer: 14
+2025-06-14 18:15:24,186 DEBUG   SenderThread:20820 [sender.py:send():379] send: final
+2025-06-14 18:15:24,187 DEBUG   SenderThread:20820 [sender.py:send():379] send: footer
+2025-06-14 18:15:24,187 DEBUG   SenderThread:20820 [sender.py:send_request():406] send_request: defer
+2025-06-14 18:15:24,187 INFO    SenderThread:20820 [sender.py:send_request_defer():610] handle sender defer: 14
+2025-06-14 18:15:24,188 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: poll_exit
+2025-06-14 18:15:24,193 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: server_info
+2025-06-14 18:15:24,194 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: poll_exit
+2025-06-14 18:15:24,194 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: get_summary
+2025-06-14 18:15:24,194 DEBUG   SenderThread:20820 [sender.py:send_request():406] send_request: poll_exit
+2025-06-14 18:15:24,194 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: sampled_history
+2025-06-14 18:15:24,195 DEBUG   SenderThread:20820 [sender.py:send_request():406] send_request: server_info
+2025-06-14 18:15:24,195 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-14 18:15:24,402 DEBUG   SenderThread:20820 [sender.py:send_request():406] send_request: poll_exit
+2025-06-14 18:15:24,403 INFO    MainThread:20820 [wandb_run.py:_footer_history_summary_info():4008] rendering history
+2025-06-14 18:15:24,403 INFO    MainThread:20820 [wandb_run.py:_footer_history_summary_info():4040] rendering summary
+2025-06-14 18:15:24,403 INFO    MainThread:20820 [wandb_run.py:_footer_sync_info():3967] logging synced files
+2025-06-14 18:15:24,405 DEBUG   HandlerThread:20820 [handler.py:handle_request():158] handle_request: shutdown
+2025-06-14 18:15:24,405 INFO    HandlerThread:20820 [handler.py:finish():882] shutting down handler
+2025-06-14 18:15:25,194 INFO    WriterThread:20820 [datastore.py:close():296] close: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250614_181429-ihrtmqcj\run-ihrtmqcj.wandb
+2025-06-14 18:15:25,413 INFO    SenderThread:20820 [sender.py:finish():1608] shutting down sender
+2025-06-14 18:15:25,413 INFO    SenderThread:20820 [file_pusher.py:finish():169] shutting down file pusher
+2025-06-14 18:15:25,413 INFO    SenderThread:20820 [file_pusher.py:join():175] waiting for file pusher
