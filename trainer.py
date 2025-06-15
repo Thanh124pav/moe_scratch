@@ -2,6 +2,7 @@ import os
 import torch
 import torch.nn as nn
 import torch.optim as optim
+from datasets import load_metric
 from torch.utils.data import DataLoader
 from transformers import Seq2SeqTrainer, Seq2SeqTrainingArguments, AutoModelForSeq2SeqLM
 from tqdm import tqdm
@@ -63,6 +64,7 @@ class Trainer:
             train_dataset=train_dataset,
             eval_dataset=eval_dataset,
             data_collator=self.data_collator,
+            compute_metrics=compute_metrics,
         )
         
         print("Starting training...")
@@ -71,3 +73,46 @@ class Trainer:
         trainer.save_model(self.folder)
         return self.model
 
+def compute_metrics(eval_preds, tokenizer=None):
+    """
+    Hàm tính BLEU, ROUGE, BERTScore cho dịch máy.
+    eval_preds: dict hoặc tuple (predictions, label_ids)
+    tokenizer: tokenizer dùng để decode
+    """
+    predictions, label_ids = eval_preds[0], eval_preds[1]
+    if isinstance(predictions, tuple):  # For some models
+        predictions = predictions[0]
+    # Chuyển sang list nếu là tensor
+    if hasattr(predictions, 'tolist'):
+        predictions = predictions.tolist()
+    if hasattr(label_ids, 'tolist'):
+        label_ids = label_ids.tolist()
+    # Loại bỏ -100
+    pred_str = [tokenizer.decode([t for t in pred if t != -100 and t != tokenizer.pad_token_id], skip_special_tokens=True) for pred in predictions]
+    label_str = [tokenizer.decode([t for t in label if t != -100 and t != tokenizer.pad_token_id], skip_special_tokens=True) for label in label_ids]
+    # BLEU
+    bleu = load_metric('sacrebleu')
+    bleu_score = bleu.compute(predictions=pred_str, references=[[l] for l in label_str])["score"]
+    # ROUGE
+    rouge = load_metric('rouge')
+    rouge_score = rouge.compute(predictions=pred_str, references=label_str, use_stemmer=True)
+    # BERTScore (nếu cần, cài bert-score)
+    try:
+        import bert_score
+        P, R, F1 = bert_score.score(pred_str, label_str, lang="vi")
+        bertscore = {
+            "bertscore_precision": P.mean().item(),
+            "bertscore_recall": R.mean().item(),
+            "bertscore_f1": F1.mean().item(),
+        }
+    except ImportError:
+        bertscore = {}
+    # Tổng hợp
+    result = {
+        "bleu": bleu_score,
+        "rouge1": rouge_score["rouge1"].mid.fmeasure,
+        "rouge2": rouge_score["rouge2"].mid.fmeasure,
+        "rougeL": rouge_score["rougeL"].mid.fmeasure,
+    }
+    result.update(bertscore)
+    return result
