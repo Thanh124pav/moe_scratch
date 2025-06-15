@@ -34,51 +34,40 @@ class Trainer:
         total_params = sum(p.numel() for p in self.model.parameters() if p.requires_grad)
         print(f"Model size: {total_params / 1e6} M")
 
-        train_dataloader = DataLoader(train_dataset, collate_fn=self.data_collator, batch_size=self.batch_size, shuffle=True)
-        eval_dataloader = DataLoader(eval_dataset, collate_fn=self.data_collator, batch_size=self.batch_size, shuffle=False)
-        optimizer = torch.optim.AdamW(self.model.parameters(), lr=1e-5)
-        tokens_seen = 0
-        global_step = 0
-        total_loss = 0
-        for epoch in range(self.num_epochs):
-            for i, batch in enumerate(tqdm(train_dataloader)):
-                optimizer.zero_grad()
-                self.model.train()
+        print("Setting up training arguments...")
+        training_args = Seq2SeqTrainingArguments(
+            self.run_name,
+            report_to="wandb",
+            do_train=True,
+            do_eval=True,
+            num_train_epochs=7,
+            learning_rate=1e-5,
+            warmup_ratio=0.05,
+            weight_decay=0.01,
+            per_device_train_batch_size=self.batch_size,
+            per_device_eval_batch_size=self.batch_size,
+            logging_dir='./log',
+            group_by_length=True,
+            save_strategy="epoch",
+            save_total_limit=3,
+            eval_strategy="steps",
+            eval_steps=200, 
+            fp16=True,
+            remove_unused_columns=True,
+        )
 
-                input_ids = batch['input_ids'].to(self.device)
-                attention_mask = batch['attention_mask'].to(self.device)
-                labels = batch['labels'].to(self.device)
-                outputs = self.model(input_ids, labels=labels, attention_mask=attention_mask)
-
-                loss = outputs.loss
-                train_batches = len(train_dataloader) // self.batch_size
-                wandb.log({"train/loss": loss.item(), "train/step": i + epoch * train_batches})
-                total_loss += loss.item()
-                loss.backward()
-                optimizer.step()
-
-                tokens_seen += input_ids.shape[1]
-                global_step += 1
-                if global_step %20 == 0: 
-                    avg_loss = total_loss / 200
-                    print(f"Epoch {epoch}, Step {i}, Loss: {avg_loss}")
-                    total_loss = 0
-                    self.model.eval()
-                    eval_loss = 0
-                    for batch in eval_dataloader:
-                        input_ids = batch['input_ids'].to(self.device)
-                        attention_mask = batch['attention_mask'].to(self.device)
-                        labels = batch['labels'].to(self.device)
-                        with torch.no_grad():
-                            outputs = self.model(input_ids, attention_mask=attention_mask, labels=labels)
-                            eval_loss += outputs.loss.item()
-                    eval_loss /= len(eval_dataloader)
-                    print(f"Epoch {epoch}, Eval Loss: {eval_loss}")
-                    wandb.log({"eval/loss": eval_loss, "eval/step": i + epoch * len(eval_dataloader)})
-                    self.model.train()
-                    if eval_loss < best_eval_loss:
-                        best_eval_loss = eval_loss
-                        save_file(self.model.state_dict(), f"{self.folder}/model.safetensors")
-                        print(f"Model saved to {self.folder}")
-
+        print("Initializing trainer...")
+        trainer = Seq2SeqTrainer(
+            model=self.model,
+            args=training_args,
+            train_dataset=train_dataset,
+            eval_dataset=eval_dataset,
+            data_collator=self.data_collator,
+        )
+        
+        print("Starting training...")
+        trainer.train() 
+        print("Training completed, saving model...")
+        trainer.save_model(self.folder)
+        return self.model
 
