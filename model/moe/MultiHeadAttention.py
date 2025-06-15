@@ -4,13 +4,19 @@ import torch.nn.functional as F
 
 block_size = 1024
 def scaled_dot_product_attention(q, k, v, mask=None):
+    #print(f"self_attn_in: {q}")
     d_k = q.size(-1)
     scores = torch.matmul(q, k.transpose(-2, -1)) / torch.sqrt(torch.tensor(d_k, dtype=torch.float32, device=q.device))
     # (B, n_heads, T, d_head) @ (B, n_heads, d_head, T') => (B, n_heads, T, T')
     if mask is not None:
         scores = scores.masked_fill(mask == 0, float('-inf'))
-    attn = F.softmax(scores, dim=-1) 
+    attn = F.softmax(scores, dim=-1)
+    # Xử lý các dòng toàn -inf (tức là attn ra NaN) thành 0
+    attn = torch.where(torch.isnan(attn), torch.zeros_like(attn), attn)
+    if mask is not None:
+        attn = attn * mask 
     output = torch.matmul(attn, v) # (B, n_heads, T, T') @ (B, n_heads, T', d_head) => (B, n_heads, T, d_head)
+    #print(f"self_attn_out: {output}")
     return output, attn 
 
 class MultiHeadAttention(nn.Module):

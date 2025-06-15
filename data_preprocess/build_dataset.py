@@ -69,7 +69,7 @@ if __name__ == '__main__':
     # Build decoder-only dataset (train/eval/test)
     train_do_translation = translation_builder.build_decoder_only_dataset(train_pairs)
     eval_do_translation = translation_builder.build_decoder_only_dataset(eval_pairs)
-    test_do_translation = translation_builder.build_decoder_only_dataset(test_pairs)
+    test_do_translation = translation_builder.build_decoder_only_dataset(test_pairs, inference = True)
     train_do_mt_dataset = Dataset.from_list(train_do_translation)
     eval_do_mt_dataset = Dataset.from_list(eval_do_translation)
     test_do_mt_dataset = Dataset.from_list(test_do_translation)

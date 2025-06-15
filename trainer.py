@@ -9,7 +9,7 @@ from tqdm import tqdm
 import wandb
 from safetensors.torch import save_file
 
-wandb.init(project="moe", name="moe-decoder-mt") 
+
 os.environ["WANDB_API_KEY"] = "e1ca972bcd5ce8fed1316c6115941ba2e37addaf"
 
 
@@ -116,3 +116,5 @@ def compute_metrics(eval_preds, tokenizer=None):
     }
     result.update(bertscore)
     return result
+if __name__ == "__main__":
+    wandb.init(project="moe", name="moe-decoder-mt") 

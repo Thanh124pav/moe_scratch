@@ -258,7 +258,7 @@ def test_translation(file_name, test_dataset,
     scores = evaluator.evaluate_batch(hypotheses, references)
     
     evaluator.print_evaluation_results(scores)
-    
+    print(hypotheses)
     # Save results
     evaluator.save_evaluation_results(scores, hypotheses, references) 
     return scores

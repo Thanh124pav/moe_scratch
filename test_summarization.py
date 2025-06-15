@@ -3,13 +3,13 @@ from safetensors.torch import load_file
 
 
 from tokenized_data.tokenizer import tokenizer
-from transformer_trainer import model, info_model, data_collator
+from trainer import model, config, data_collator
 from tokenized_data.load_data import test_dataset
 
 from summarization_metrics import test_summarization 
 
 metric = load_metric("rouge") 
-#model.load_state_dict(load_file( info_model["folder"] + "/model.safetensors"))
+model.load_state_dict(load_file( config.folder + "/model.safetensors"))
 
 context_length = 1024
 batch_test = 4

@@ -1,0 +1,15 @@
+{
+  "additional_special_tokens": [
+    {
+      "content": "<sep>",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false
+    }
+  ],
+  "eos_token": "</s>",
+  "pad_token": "<pad>",
+  "sep_token": "<sep>",
+  "unk_token": "<unk>"
+}

@@ -28,7 +28,7 @@ class Block(nn.Module):
             causal_mask = torch.tril(torch.ones(T, T, device=x.device)).unsqueeze(0).unsqueeze(0)
             if attention_mask is not None:
                 # attention_mask: (B, T) -> (B, 1, 1, T)
-                attn_mask = attention_mask[:, None, None, :]
+                attn_mask = attention_mask.unsqueeze(1).unsqueeze(1)
                 # Kết hợp causal mask và attention mask (broadcast)
                 mask = (causal_mask.bool() & attn_mask.bool()).to(x.device)
             else:
@@ -37,6 +37,7 @@ class Block(nn.Module):
         x = self.ln1(x + mha_out)
         out_moe, lb_loss = self.smoe(x)
         x = self.ln2(x + out_moe)
+        #print(f"moe_out: {x}")
         return x, lb_loss, next_kv
 
 lb_weight = 0.01
@@ -63,6 +64,8 @@ class MoEDecoderModel(nn.Module):
 
 
     def forward(self, input_ids, labels=None, attention_mask=None, past_kv=None, use_cache=False):
+        #print(input_ids)
+        ##print(labels)
         B, T = input_ids.shape
         tok_emb = self.token_embedding_table(input_ids) # (B,T,C)
         pos_emb = self.position_embedding_table(torch.arange(T, device=device)) # (T,C)
@@ -78,25 +81,20 @@ class MoEDecoderModel(nn.Module):
                 next_kvs.append(next_kv)
             total_lb_loss += lb_loss
         x = self.ln_f(x) # (B,T,C)
+        ##print(f"x: {x}")
         logits = self.lm_head(x) # (B,T,vocab_size)
 
         # Tính toán các loss
         loss = None
         
         if labels is not None:
-            # Shift logits và labels cho causal LM (như GPT)
-            shift_logits = logits[..., :-1, :].contiguous()
-            shift_labels = labels[..., 1:].contiguous()
-            
-            # Flatten để tính loss
-            shift_logits = shift_logits.view(-1, shift_logits.size(-1))
-            shift_labels = shift_labels.view(-1)
-            
-            # Cross entropy với ignore_index=-100 (mask source tokens)
-            loss = F.cross_entropy(shift_logits, shift_labels, ignore_index=-100) + lb_weight * total_lb_loss
-            
-
-                
+            B, T, C = logits.shape
+            logits_2d = logits.view(B*T, -1)
+            labels_2d = labels.view(B*T)
+            ##print(f"logits_2d: {logits_2d}")
+            ##print(f"labels_2d: {labels_2d}")
+            loss = F.cross_entropy(logits_2d, labels_2d, ignore_index=-100) + lb_weight * total_lb_loss
+            #print(f"loss: {loss}")
         if use_cache: 
             return Seq2SeqLMOutput(logits=logits, loss=loss), next_kvs
         return Seq2SeqLMOutput(logits=logits, loss=loss)
@@ -119,14 +117,6 @@ class MoEDecoderModel(nn.Module):
         # Handle parameters
         if context_length is None:
             context_length = input_ids.shape[1]  # Use all input
-        if max_length is not None:
-            max_new_tokens = max_length - input_ids.shape[1]
-        if eos_token_id is None:
-            eos_token_id = self.eos_token_id
-            
-        # For decoder-only generation with source-only input từ Seq2SeqTrainer
-        # Cần thêm separator token nếu chỉ có source
-        # Giả sử tokenizer có sep_token hoặc dùng eos_token làm separator
         
         generated = torch.zeros((batch_size, max_new_tokens), dtype=torch.long, device=input_ids.device)
         finish = torch.zeros((batch_size,), device=input_ids.device, dtype=torch.bool) 
@@ -142,7 +132,6 @@ class MoEDecoderModel(nn.Module):
             output, next_kvs = self(input_step, use_cache=True, past_kv=past_kv)
             logits = output.logits[:, -1, :]
             
-            # Simple greedy decoding (có thể thay bằng sampling)
             logits = F.softmax(logits, dim=-1)
             idx_next = torch.argmax(logits, dim=-1, keepdim=True)
             
