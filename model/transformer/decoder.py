@@ -22,8 +22,17 @@ class DBlock(nn.Module):
         self.norm3 = nn.LayerNorm(dim)
         
 
-    def forward(self, x, enc, past_key_values=None, use_cache=False):
-        sa_out, next_kv = self.self_attn(x, x, x, past_key_values=past_key_values, use_cache=use_cache)
+    def forward(self, x, enc, past_key_values=None, use_cache=False, attention_mask=None):
+        B, T, C = x.shape
+        mask = None
+        if not use_cache:
+            causal_mask = torch.tril(torch.ones(T, T, device=x.device)).unsqueeze(0).unsqueeze(0)
+            if attention_mask is not None:
+                attn_mask = attention_mask.unsqueeze(1).unsqueeze(1)
+                mask = (causal_mask.bool() & attn_mask.bool()).to(x.device)
+            else:
+                mask = causal_mask
+        sa_out, next_kv = self.self_attn(x, x, x, past_key_values=past_key_values, use_cache=use_cache, mask=mask)
         sa_out = self.drop1(sa_out)
         x = self.norm1(x + sa_out)
         ca_out, _ = self.cross_attn(x, enc, enc)
@@ -53,7 +62,7 @@ class Decoder(nn.Module):
         next_kvs = []
         for i, layer in enumerate(self.layers):
             past = past_key_values[i] if past_key_values else None
-            y, _, kv = layer(y, enc_out, past, use_cache)
+            y, _, kv = layer(y, enc_out, past, use_cache, attention_mask = attention_mask)
             if use_cache:
                 next_kvs.append(kv)
         if use_cache is None: 

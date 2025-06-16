@@ -102,15 +102,7 @@ class MoEDecoderModel(nn.Module):
     @torch.no_grad
     def generate(self, input_ids, max_length=None, max_new_tokens=128, context_length=None, 
                  pad_token_id=None, eos_token_id=None, **kwargs):
-        """
-        Generate method compatible với Seq2SeqTrainer
-        
-        Args:
-            input_ids: Source tokens (for decoder-only, cần add separator)
-            max_length: Max total length 
-            max_new_tokens: Max tokens to generate
-            context_length: Context length to use (fallback)
-        """
+
         self.eval()
         batch_size = input_ids.shape[0]
         
@@ -140,9 +132,13 @@ class MoEDecoderModel(nn.Module):
             past_kv = next_kvs
             
             check_end = (idx_next.squeeze(-1) == eos_token_id)
-            finish = torch.logical_or(finish, check_end)
-            if finish.all():
-                break
+            if isinstance(check_end, bool):
+                if check_end:
+                    break
+            else:
+                finish = torch.logical_or(finish, check_end)
+                if finish.all():
+                    break
                 
         return generated
 

@@ -16,7 +16,16 @@ class EBlock(nn.Module):
             nn.Dropout(0.2)
         )
         self.norm2 = nn.LayerNorm(dim)
-    def forward(self, x): 
+    def forward(self, x, attention_mask = None): 
+        B, T, C = x.shape
+        causal_mask = torch.tril(torch.ones(T, T, device=x.device)).unsqueeze(0).unsqueeze(0)
+        if attention_mask is not None:
+            # attention_mask: (B, T) -> (B, 1, 1, T)
+            attn_mask = attention_mask.unsqueeze(1).unsqueeze(1)
+            # Kết hợp causal mask và attention mask (broadcast)
+            mask = (causal_mask.bool() & attn_mask.bool()).to(x.device)
+        else:
+            mask = causal_mask
         h, _ = self.attn(x, x, x)
         h = self.drop1(h) 
         x = self.norm1(x + h)
@@ -36,12 +45,12 @@ class Encoder(nn.Module):
         self.layers = nn.ModuleList(
             [EBlock(dim, n_heads) for _ in range(n_layers)]
         )
-    def forward(self, input_ids):
+    def forward(self, input_ids, attention_mask = None):
         B, T = input_ids.shape 
         tok_emb = self.embed_tokens(input_ids) 
         pos_emb = self.pos_embed(torch.arange(T, device = input_ids.device))
         x = tok_emb + pos_emb 
         x = self.drop(x)
         for layer in self.layers: 
-            x, _ = layer(x) 
+            x, _ = layer(x, attention_mask = attention_mask) 
         return BaseModelOutput(last_hidden_state=x), 0

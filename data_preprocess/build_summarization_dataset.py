@@ -5,9 +5,13 @@ class BuildSummarizationDataset:
     def __init__(self, tokenizer):
         self.tokenizer = tokenizer
 
-    def build_encoder_decoder_dataset(self, pairs, max_length=512):
+    def build_encoder_decoder_dataset(self, pairs, max_length=1024):
         dataset = []
         for document, summary in pairs:
+            doc_ids = self.tokenizer.encode(document, add_special_tokens=False)
+            sum_ids = self.tokenizer.encode(summary, add_special_tokens=False)
+            if len(doc_ids) > max_length or len(sum_ids) > max_length:
+                continue  # Bỏ qua sample quá dài
             doc_enc = self.tokenizer(document, max_length=max_length, truncation=True, padding='max_length', return_tensors='pt')
             sum_enc = self.tokenizer(summary, max_length=max_length, truncation=True, padding='max_length', return_tensors='pt')
             sample = {
@@ -18,7 +22,7 @@ class BuildSummarizationDataset:
             dataset.append(sample)
         return dataset
 
-    def build_decoder_only_dataset(self, pairs, max_length=512, sep_token='<sep>'):
+    def build_decoder_only_dataset(self, pairs, max_length=1024, sep_token='<sep>', inference=False):
         dataset = []
         eos_token = self.tokenizer.eos_token
         if self.tokenizer.sep_token is None:
@@ -27,14 +31,27 @@ class BuildSummarizationDataset:
         old_padding_side = self.tokenizer.padding_side
         self.tokenizer.padding_side = 'left'
         for document, summary in pairs:
-            input_text = f"{document} {sep_token} {summary} {eos_token}"
+            # Kiểm tra độ dài trước khi encode full
+            doc_ids = self.tokenizer.encode(document, add_special_tokens=False)
+            sum_ids = self.tokenizer.encode(summary, add_special_tokens=False)
+            if len(doc_ids) > max_length or len(sum_ids) > max_length:
+                continue
+            if not inference:
+                input_text = f"{document} {sep_token} {summary}"
+            else:
+                input_text = f"{document} {sep_token}"
             enc = self.tokenizer(input_text, max_length=max_length, truncation=True, padding='max_length', return_tensors='pt')
             input_ids = enc['input_ids'].squeeze(0)
             attention_mask = enc['attention_mask'].squeeze(0)
             sep_id = self.tokenizer.convert_tokens_to_ids(sep_token)
             sep_idx = (input_ids == sep_id).nonzero(as_tuple=True)[0].item() if sep_id in input_ids else 0
-            labels = input_ids.clone()
-            labels[:sep_idx+1] = -100
+            if not inference:
+                labels = self.tokenizer(summary, max_length=max_length, truncation=True, padding='max_length', return_tensors='pt')
+                labels = labels['input_ids'].squeeze(0).tolist()
+                labels = [idx if idx != self.tokenizer.pad_token_id else -100 for idx in labels]
+            else:
+                labels = input_ids.clone()
+                labels[:sep_idx+1] = -100
             sample = {
                 'input_ids': input_ids,
                 'attention_mask': attention_mask,

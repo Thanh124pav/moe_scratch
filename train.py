@@ -14,6 +14,7 @@ print("CUDA khả dụng:", torch.cuda.is_available())
 from model.moe.decoder_only import MoEDecoderModel
 # from tokenized_data.tokenizer import tokenizer
 tokenizer = AutoTokenizer.from_pretrained('tokenized_data/do_tokenizer')
+tokenizer.padding_size = 'left'
 from trainer import Trainer
 
 
@@ -30,11 +31,11 @@ config = PretrainedConfig(
     n_heads = 8,
     n_experts = 8,
     top_k_experts = 2, 
-    run_name = "decoder_mt",
-    folder = "test_do_tokL_mt",
+    run_name = "decoder_as",
+    folder = "test_do_tokL_as",
     num_epochs = 7,
-    batch_size = 4,
-    path_data = "data/machine_translation/do/",
+    batch_size = 2,
+    path_data = "data/summarization/do/",
 )
 
 model = MoEDecoderModel(config).to('cuda')

@@ -1,0 +1,53 @@
+{
+    "os": "Windows-10-10.0.22631-SP0",
+    "python": "3.11.5",
+    "heartbeatAt": "2025-06-16T02:45:43.480160",
+    "startedAt": "2025-06-16T02:45:41.849342",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "d:\\Downloads\\DS_AI\\VDT\\MoE\\moe\\train.py",
+    "codePathLocal": "train.py",
+    "codePath": "train.py",
+    "git": {
+        "remote": "https://github.com/Thanh124pav/moe_scratch.git",
+        "commit": "3c0ea28a406d88501fc814606f2cc649d5fffa66"
+    },
+    "email": "phamvanthanh.csp@gmail.com",
+    "root": "D:/Downloads/DS_AI/VDT/MoE/moe",
+    "host": "ASUS-newMe",
+    "username": "PAVT",
+    "executable": "D:\\Anaconda3\\python.exe",
+    "cpu_count": 6,
+    "cpu_count_logical": 12,
+    "cpu_freq": {
+        "current": 3001.0,
+        "min": 0.0,
+        "max": 3001.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3001.0,
+            "min": 0.0,
+            "max": 3001.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 249.02245712280273,
+            "used": 211.34080123901367
+        }
+    },
+    "gpu": "NVIDIA GeForce GTX 1650",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce GTX 1650",
+            "memory_total": 4294967296
+        }
+    ],
+    "memory": {
+        "total": 7.420848846435547
+    }
+}

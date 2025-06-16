@@ -9,7 +9,11 @@ def scaled_dot_product_attention(q, k, v, mask=None):
     # (B, n_heads, T, d_head) @ (B, n_heads, d_head, T') => (B, n_heads, T, T')
     if mask is not None:
         scores = scores.masked_fill(mask == 0, float('-inf'))
-    attn = F.softmax(scores, dim=-1) 
+    attn = F.softmax(scores, dim=-1)
+    # Xử lý các dòng toàn -inf (tức là attn ra NaN) thành 0
+    attn = torch.where(torch.isnan(attn), torch.zeros_like(attn), attn)
+    if mask is not None:
+        attn = attn * mask
     output = torch.matmul(attn, v) # (B, n_heads, T, T') @ (B, n_heads, T', d_head) => (B, n_heads, T, d_head)
     return output, attn 
 
@@ -29,7 +33,7 @@ class MultiHeadAttention(nn.Module):
     def clear_cache(self):
         self.k_cache = None 
         self.v_cache = None
-    def forward(self, query, key, value, past_key_values=None, use_cache=False):
+    def forward(self, query, key, value, past_key_values=None, use_cache=False, mask = None):
         '''Return MHA output and (k,v)'''
         B, T, C = query.size()
         def shape(x): return x.view(B, -1, self.num_heads, self.head_dim).transpose(1, 2) # (B, T, C) => (B, T, num_heads, head_dim) => (B, num_heads, T, d_head)
@@ -49,7 +53,7 @@ class MultiHeadAttention(nn.Module):
                     v_cache = v_cache[:, :, 1:, :]
                 k = k_cache # (B, num_heads, T + T', d_head)
                 v = v_cache # (B, num_heads, T + T', d_head)
-        output, _ = scaled_dot_product_attention(q, k, v) # (B, n_heads, T, d_head)
+        output, _ = scaled_dot_product_attention(q, k, v, mask) # (B, n_heads, T, d_head)
         output = unshape(output) # (B, T, C)
         next_kv = (k, v) if use_cache else None
         return self.out_proj(output), next_kv  #  (B, T, C) , (B, num_heads, T + T', d_head) 

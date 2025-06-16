@@ -1,0 +1,118 @@
+2025-06-16 09:45:41,860 INFO    StreamThr :26788 [internal.py:wandb_internal():85] W&B internal server running at pid: 26788, started at: 2025-06-16 09:45:41.859320
+2025-06-16 09:45:41,862 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: status
+2025-06-16 09:45:41,871 INFO    WriterThread:26788 [datastore.py:open_for_write():87] open: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250616_094541-5a29qr5x\run-5a29qr5x.wandb
+2025-06-16 09:45:41,872 DEBUG   SenderThread:26788 [sender.py:send():379] send: header
+2025-06-16 09:45:41,942 DEBUG   SenderThread:26788 [sender.py:send():379] send: run
+2025-06-16 09:45:42,743 INFO    SenderThread:26788 [dir_watcher.py:__init__():211] watching files in: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250616_094541-5a29qr5x\files
+2025-06-16 09:45:42,743 INFO    SenderThread:26788 [sender.py:_start_run_threads():1188] run started: 5a29qr5x with start time 1750041941.866459
+2025-06-16 09:45:42,754 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: check_version
+2025-06-16 09:45:42,754 DEBUG   SenderThread:26788 [sender.py:send_request():406] send_request: check_version
+2025-06-16 09:45:43,249 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: run_start
+2025-06-16 09:45:43,458 DEBUG   HandlerThread:26788 [system_info.py:__init__():26] System info init
+2025-06-16 09:45:43,458 DEBUG   HandlerThread:26788 [system_info.py:__init__():41] System info init done
+2025-06-16 09:45:43,458 INFO    HandlerThread:26788 [system_monitor.py:start():194] Starting system monitor
+2025-06-16 09:45:43,459 INFO    SystemMonitor:26788 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2025-06-16 09:45:43,459 INFO    HandlerThread:26788 [system_monitor.py:probe():214] Collecting system info
+2025-06-16 09:45:43,467 INFO    SystemMonitor:26788 [interfaces.py:start():188] Started cpu monitoring
+2025-06-16 09:45:43,468 INFO    SystemMonitor:26788 [interfaces.py:start():188] Started disk monitoring
+2025-06-16 09:45:43,468 INFO    SystemMonitor:26788 [interfaces.py:start():188] Started gpu monitoring
+2025-06-16 09:45:43,469 INFO    SystemMonitor:26788 [interfaces.py:start():188] Started memory monitoring
+2025-06-16 09:45:43,478 INFO    SystemMonitor:26788 [interfaces.py:start():188] Started network monitoring
+2025-06-16 09:45:43,480 DEBUG   HandlerThread:26788 [system_info.py:probe():152] Probing system
+2025-06-16 09:45:43,481 DEBUG   HandlerThread:26788 [system_info.py:_probe_git():137] Probing git
+2025-06-16 09:45:43,614 DEBUG   HandlerThread:26788 [system_info.py:_probe_git():145] Probing git done
+2025-06-16 09:45:43,615 DEBUG   HandlerThread:26788 [system_info.py:probe():200] Probing system done
+2025-06-16 09:45:43,615 DEBUG   HandlerThread:26788 [system_monitor.py:probe():223] {'os': 'Windows-10-10.0.22631-SP0', 'python': '3.11.5', 'heartbeatAt': '2025-06-16T02:45:43.480160', 'startedAt': '2025-06-16T02:45:41.849342', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': 'd:\\Downloads\\DS_AI\\VDT\\MoE\\moe\\train.py', 'codePathLocal': 'train.py', 'codePath': 'train.py', 'git': {'remote': 'https://github.com/Thanh124pav/moe_scratch.git', 'commit': '3c0ea28a406d88501fc814606f2cc649d5fffa66'}, 'email': 'phamvanthanh.csp@gmail.com', 'root': 'D:/Downloads/DS_AI/VDT/MoE/moe', 'host': 'ASUS-newMe', 'username': 'PAVT', 'executable': 'D:\\Anaconda3\\python.exe', 'cpu_count': 6, 'cpu_count_logical': 12, 'cpu_freq': {'current': 3001.0, 'min': 0.0, 'max': 3001.0}, 'cpu_freq_per_core': [{'current': 3001.0, 'min': 0.0, 'max': 3001.0}], 'disk': {'/': {'total': 249.02245712280273, 'used': 211.34080123901367}}, 'gpu': 'NVIDIA GeForce GTX 1650', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce GTX 1650', 'memory_total': 4294967296}], 'memory': {'total': 7.420848846435547}}
+2025-06-16 09:45:43,615 INFO    HandlerThread:26788 [system_monitor.py:probe():224] Finished collecting system info
+2025-06-16 09:45:43,615 INFO    HandlerThread:26788 [system_monitor.py:probe():227] Publishing system info
+2025-06-16 09:45:43,615 DEBUG   HandlerThread:26788 [system_info.py:_save_conda():209] Saving list of conda packages installed into the current environment
+2025-06-16 09:45:43,759 INFO    Thread-16 :26788 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250616_094541-5a29qr5x\files\conda-environment.yaml
+2025-06-16 09:45:58,639 ERROR   HandlerThread:26788 [system_info.py:_save_conda():223] Error saving conda packages: Command '['conda', 'env', 'export']' timed out after 15 seconds
+Traceback (most recent call last):
+  File "D:\Anaconda3\Lib\site-packages\wandb\sdk\internal\system\system_info.py", line 216, in _save_conda
+    subprocess.call(
+  File "D:\Anaconda3\Lib\subprocess.py", line 391, in call
+    return p.wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\Lib\subprocess.py", line 1264, in wait
+    return self._wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\Lib\subprocess.py", line 1591, in _wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['conda', 'env', 'export']' timed out after 15 seconds
+2025-06-16 09:45:58,646 DEBUG   HandlerThread:26788 [system_info.py:_save_conda():224] Saving conda packages done
+2025-06-16 09:45:58,646 INFO    HandlerThread:26788 [system_monitor.py:probe():229] Finished publishing system info
+2025-06-16 09:45:58,703 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: status_report
+2025-06-16 09:45:58,703 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: keepalive
+2025-06-16 09:45:58,704 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: status_report
+2025-06-16 09:45:58,704 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: keepalive
+2025-06-16 09:45:58,704 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: status_report
+2025-06-16 09:45:58,704 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: keepalive
+2025-06-16 09:45:58,704 DEBUG   SenderThread:26788 [sender.py:send():379] send: files
+2025-06-16 09:45:58,705 INFO    SenderThread:26788 [sender.py:_save_file():1454] saving file wandb-metadata.json with policy now
+2025-06-16 09:45:58,867 INFO    Thread-16 :26788 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250616_094541-5a29qr5x\files\wandb-metadata.json
+2025-06-16 09:45:59,713 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: python_packages
+2025-06-16 09:45:59,713 DEBUG   SenderThread:26788 [sender.py:send_request():406] send_request: python_packages
+2025-06-16 09:45:59,716 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-16 09:45:59,717 DEBUG   SenderThread:26788 [sender.py:send_request():406] send_request: stop_status
+2025-06-16 09:45:59,719 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:45:59,771 INFO    wandb-upload_0:26788 [upload_job.py:push():130] Uploaded file C:\Users\PAVT\AppData\Local\Temp\tmpof4ie960wandb\noabu5uz-wandb-metadata.json
+2025-06-16 09:45:59,884 INFO    Thread-16 :26788 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250616_094541-5a29qr5x\files\requirements.txt
+2025-06-16 09:45:59,981 DEBUG   SenderThread:26788 [sender.py:send():379] send: telemetry
+2025-06-16 09:46:00,890 INFO    Thread-16 :26788 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250616_094541-5a29qr5x\files\output.log
+2025-06-16 09:46:00,932 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:46:01,990 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:46:02,675 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: status_report
+2025-06-16 09:46:02,907 INFO    Thread-16 :26788 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250616_094541-5a29qr5x\files\output.log
+2025-06-16 09:46:03,016 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:46:04,040 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:46:05,075 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:46:06,101 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:46:07,158 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:46:07,764 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: status_report
+2025-06-16 09:46:08,174 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:46:09,263 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:46:10,288 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:46:11,302 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:46:12,326 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:46:12,767 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: status_report
+2025-06-16 09:46:13,356 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:46:14,008 INFO    Thread-16 :26788 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250616_094541-5a29qr5x\files\config.yaml
+2025-06-16 09:46:14,402 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:46:14,745 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-16 09:46:14,745 DEBUG   SenderThread:26788 [sender.py:send_request():406] send_request: stop_status
+2025-06-16 09:46:15,411 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:46:16,427 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:46:17,050 INFO    Thread-16 :26788 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250616_094541-5a29qr5x\files\conda-environment.yaml
+2025-06-16 09:46:17,443 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:46:18,063 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: status_report
+2025-06-16 09:46:18,464 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:46:19,485 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:46:20,501 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:46:21,529 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:46:22,253 DEBUG   SenderThread:26788 [sender.py:send():379] send: config
+2025-06-16 09:46:22,253 DEBUG   SenderThread:26788 [sender.py:send():379] send: metric
+2025-06-16 09:46:22,254 DEBUG   SenderThread:26788 [sender.py:send():379] send: telemetry
+2025-06-16 09:46:22,254 DEBUG   SenderThread:26788 [sender.py:send():379] send: telemetry
+2025-06-16 09:46:22,254 DEBUG   SenderThread:26788 [sender.py:send():379] send: metric
+2025-06-16 09:46:22,254 WARNING SenderThread:26788 [sender.py:send_metric():1405] Seen metric with glob (shouldn't happen)
+2025-06-16 09:46:22,254 DEBUG   SenderThread:26788 [sender.py:send():379] send: telemetry
+2025-06-16 09:46:22,533 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:46:23,264 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: status_report
+2025-06-16 09:46:23,546 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:46:24,562 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:46:25,139 INFO    Thread-16 :26788 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250616_094541-5a29qr5x\files\output.log
+2025-06-16 09:46:25,571 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:46:26,584 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:46:27,163 INFO    Thread-16 :26788 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250616_094541-5a29qr5x\files\output.log
+2025-06-16 09:46:27,599 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:46:28,600 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:46:28,783 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: status_report
+2025-06-16 09:46:29,180 INFO    Thread-16 :26788 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250616_094541-5a29qr5x\files\output.log
+2025-06-16 09:46:29,611 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:46:29,738 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-16 09:46:29,739 DEBUG   SenderThread:26788 [sender.py:send_request():406] send_request: stop_status
+2025-06-16 09:46:30,621 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:46:31,201 INFO    Thread-16 :26788 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250616_094541-5a29qr5x\files\output.log
+2025-06-16 09:46:31,622 DEBUG   HandlerThread:26788 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-16 09:46:33,221 INFO    Thread-16 :26788 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250616_094541-5a29qr5x\files\output.log

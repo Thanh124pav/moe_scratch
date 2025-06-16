@@ -9,6 +9,10 @@ class BuildTranslationDataset:
         print("Start build encoder-decodeer dataset!")
         dataset = []
         for src, tgt in pairs:
+            src_ids = self.tokenizer.encode(src, add_special_tokens=False)
+            tgt_ids = self.tokenizer.encode(tgt, add_special_tokens=False)
+            if len(src_ids) > max_length or len(tgt_ids) > max_length:
+                continue  # Bỏ qua sample quá dài
             src_enc = self.tokenizer(src, max_length=max_length, truncation=True, padding='max_length', return_tensors='pt')
             tgt_enc = self.tokenizer(tgt, max_length=max_length, truncation=True, padding='max_length', return_tensors='pt')
             labels = [idx if idx != self.tokenizer.pad_token_id else -100 for idx in tgt_enc['input_ids'].squeeze(0).tolist()]
@@ -29,6 +33,10 @@ class BuildTranslationDataset:
         old_padding_side = self.tokenizer.padding_side
         self.tokenizer.padding_side = 'left'
         for src, tgt in pairs:
+            src_ids = self.tokenizer.encode(src, add_special_tokens=False)
+            tgt_ids = self.tokenizer.encode(tgt, add_special_tokens=False)
+            if len(src_ids) > max_length or len(tgt_ids) > max_length:
+                continue  # Bỏ qua sample quá dài
             if not inference:
                 input_text = f"{src} {sep_token} {tgt}"
                 enc = self.tokenizer(input_text, max_length=max_length, truncation=True, padding='max_length', return_tensors='pt')
@@ -55,7 +63,6 @@ class BuildTranslationDataset:
                 }
                 labels = self.tokenizer(tgt, max_length=max_length, truncation=True, padding='max_length', return_tensors='pt')
                 label_ids = labels['input_ids'].squeeze(0).tolist()
-                # attention_mask = labels['attention_mask'].squeeze(0)
                 label_ids = [idx if idx != self.tokenizer.pad_token_id else -100 for idx in label_ids]
                 sample['labels'] = label_ids
                 dataset.append(sample)

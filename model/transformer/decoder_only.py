@@ -21,8 +21,17 @@ class Block(nn.Module):
         )
         
 
-    def forward(self, x, past_key_values=None, use_cache=False):
-        sa_out, next_kv = self.self_attn(x, x, x, past_key_values=past_key_values, use_cache=use_cache)
+    def forward(self, x, past_key_values=None, use_cache=False, attention_mask=None):
+        B, T, C = x.shape
+        mask = None
+        if not use_cache:
+            causal_mask = torch.tril(torch.ones(T, T, device=x.device)).unsqueeze(0).unsqueeze(0)
+            if attention_mask is not None:
+                attn_mask = attention_mask.unsqueeze(1).unsqueeze(1)
+                mask = (causal_mask.bool() & attn_mask.bool()).to(x.device)
+            else:
+                mask = causal_mask
+        sa_out, next_kv = self.self_attn(x, x, x, past_key_values=past_key_values, use_cache=use_cache, mask=mask)
         sa_out = self.drop1(sa_out)
         x = self.norm1(x + sa_out)
         ff_out = self.ff(x)
@@ -47,36 +56,21 @@ class DecoderOnly(nn.Module):
         )
         self.ln_f = nn.LayerNorm(embed_dim)
         self.lm_head = nn.Linear(embed_dim, vocab_size, bias=False)
-        # Thêm các tham số cho KL divergence
-        self.kl_weight = nn.Parameter(torch.ones(1))  # Learnable weight for KL loss
-        self.temperature = 1.0  # Temperature parameter for softmax
         
-    def compute_kl_loss(self, student_logits, teacher_logits):
-        """
-        Compute KL divergence loss between student and teacher logits
-        """
-        student_log_probs = F.log_softmax(student_logits / self.temperature, dim=-1)
-        teacher_probs = F.softmax(teacher_logits / self.temperature, dim=-1)
         
-        kl_loss = F.kl_div(
-            student_log_probs,
-            teacher_probs,
-            reduction='batchmean'
-        ) * (self.temperature ** 2)
-        
-        return kl_loss
-        
-    def forward(self, input_ids, labels=None, past_key_values=None, 
+    def forward(self, input_ids, labels=None, attention_mask=None, past_key_values=None, 
                 use_cache=False, **kwargs): 
         B, T = input_ids.shape 
         tok_emb = self.embed(input_ids)
         pos_emb = self.pos_embed(torch.arange(T, device=input_ids.device))
         x = tok_emb + pos_emb 
         x = self.drop(x)
+        if past_kv is None:
+            past_kv = [None] * len(self.blocks)
         next_kvs = []
         for i, layer in enumerate(self.layers):
             past = past_key_values[i] if past_key_values else None
-            x, _, kv = layer(x, past, use_cache)
+            x, _, kv = layer(x, past, use_cache, attention_mask)
             if use_cache:
                 next_kvs.append(kv)
         x = self.ln_f(x)

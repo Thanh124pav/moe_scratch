@@ -18,8 +18,19 @@ class DecoderBlock(nn.Module):
         self.norm3 = nn.LayerNorm(dim)
         
 
-    def forward(self, x, enc, past_key_values=None, use_cache=False):
-        sa_out, next_kv = self.self_attn(x, x, x, past_key_values=past_key_values, use_cache=use_cache)
+    def forward(self, x, enc, past_key_values=None, use_cache=False, attention_mask = None):
+        B, T, _ = x.shape
+        if not use_cache:
+        # Causal mask: (1, 1, T, T)
+            causal_mask = torch.tril(torch.ones(T, T, device=x.device)).unsqueeze(0).unsqueeze(0)
+            if attention_mask is not None:
+                # attention_mask: (B, T) -> (B, 1, 1, T)
+                attn_mask = attention_mask.unsqueeze(1).unsqueeze(1)
+                # Kết hợp causal mask và attention mask (broadcast)
+                mask = (causal_mask.bool() & attn_mask.bool()).to(x.device)
+            else:
+                mask = causal_mask
+        sa_out, next_kv = self.self_attn(x, x, x, past_key_values=past_key_values, use_cache=use_cache, mask = mask)
         sa_out = self.drop1(sa_out)
         x = self.norm1(x + sa_out)
         ca_out, _ = self.cross_attn(x, enc, enc)
@@ -58,7 +69,7 @@ class Decoder(nn.Module):
         
         for i, layer in enumerate(self.layers):
             past = past_key_values[i] if past_key_values else None
-            y, lb, kv = layer(y, enc_out, past, use_cache)
+            y, lb, kv = layer(y, enc_out, past, use_cache, attention_mask = attention_mask)
             lb_loss += lb
             if use_cache:
                 next_kvs.append(kv)
