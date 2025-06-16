@@ -17,7 +17,7 @@ def test_summarization(file_name, test_dataset,
     for i, batch in enumerate(tqdm(test_dataloader)):
         outputs = model.generate(
             input_ids=batch['input_ids'].to('cuda'),
-            context_length=context_length,
+            #context_length=context_length,
         )
         texts.append(outputs)
         labels_list.append(batch['labels'])

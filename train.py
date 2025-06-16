@@ -32,10 +32,10 @@ config = PretrainedConfig(
     n_experts = 8,
     top_k_experts = 2, 
     run_name = "decoder_as",
-    folder = "test_do_tokL_as",
+    folder = "saved_model/test_do_tokL_as",
     num_epochs = 7,
     batch_size = 2,
-    path_data = "data/summarization/do/",
+    path_data = "data/summarization/ed/",
 )
 
 model = MoEDecoderModel(config).to('cuda')

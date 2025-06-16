@@ -89,6 +89,8 @@ class MoEDecoderModel(nn.Module):
         
         if labels is not None:
             B, T, C = logits.shape
+            labels = labels[...,1:, :].contiguos()
+            logits = logits[...,:-1, :].contiguos()
             logits_2d = logits.view(B*T, -1)
             labels_2d = labels.view(B*T)
             ##print(f"logits_2d: {logits_2d}")
@@ -100,8 +102,8 @@ class MoEDecoderModel(nn.Module):
         return Seq2SeqLMOutput(logits=logits, loss=loss)
     
     @torch.no_grad
-    def generate(self, input_ids, max_length=None, max_new_tokens=128, context_length=None, 
-                 pad_token_id=None, eos_token_id=None, **kwargs):
+    def generate(self, input_ids, max_length=None, max_new_tokens=64, context_length=None, 
+                 pad_token_id=None, eos_token_id=None,top_k=5, top_p=0.6, temperature=1.5, **kwargs):
 
         self.eval()
         batch_size = input_ids.shape[0]
@@ -122,10 +124,31 @@ class MoEDecoderModel(nn.Module):
                 input_step = idx_cond[:, -1:].contiguous()
                 
             output, next_kvs = self(input_step, use_cache=True, past_kv=past_kv)
-            logits = output.logits[:, -1, :]
+            logits = output.logits[:, -1, :]/temperature
+
+            # Top-k sampling
+            if top_k > 0:
+                top_k = min(top_k, logits.size(-1))
+                values, indices = torch.topk(logits, top_k)
+                mask = torch.full_like(logits, float('-inf'))
+                mask.scatter_(1, indices, values)
+                logits = mask
+
+            # Top-p (nucleus) sampling
+            if top_p < 1.0:
+                sorted_logits, sorted_indices = torch.sort(logits, descending=True)
+                cumulative_probs = torch.cumsum(F.softmax(sorted_logits, dim=-1), dim=-1)
+                sorted_mask = cumulative_probs > top_p
+                # Shift mask right to keep at least one token
+                sorted_mask[..., 1:] = sorted_mask[..., :-1].clone()
+                sorted_mask[..., 0] = 0
+                indices_to_remove = sorted_mask.scatter(1, sorted_indices, sorted_mask)
+                logits = logits.masked_fill(indices_to_remove, float('-inf'))
+
+
             
-            logits = F.softmax(logits, dim=-1)
-            idx_next = torch.argmax(logits, dim=-1, keepdim=True)
+            probs = F.softmax(logits, dim=-1)
+            idx_next = torch.multinomial(probs, num_samples=1)
             
             generated[:, i] = idx_next.squeeze(-1)
             idx_cond = torch.cat((idx_cond, idx_next), dim=-1)
