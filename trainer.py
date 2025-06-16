@@ -42,7 +42,7 @@ class Trainer:
             do_train=True,
             do_eval=True,
             num_train_epochs=7,
-            learning_rate=1e-5,
+            learning_rate=1e-3,
             warmup_ratio=0.05,
             weight_decay=0.01,
             per_device_train_batch_size=self.batch_size,
@@ -52,7 +52,7 @@ class Trainer:
             save_strategy="epoch",
             save_total_limit=3,
             eval_strategy="steps",
-            eval_steps=200, 
+            eval_steps=1000, 
             fp16=True,
             remove_unused_columns=True,
         )

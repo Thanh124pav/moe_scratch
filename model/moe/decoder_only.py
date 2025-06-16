@@ -88,15 +88,15 @@ class MoEDecoderModel(nn.Module):
         loss = None
         
         if labels is not None:
-            B, T, C = logits.shape
-            labels = labels[...,1:, :].contiguos()
-            logits = logits[...,:-1, :].contiguos()
+            labels = labels[...,1:].contiguous()
+            logits = logits[...,:-1, :].contiguous()
+            B, T, _ = logits.shape
             logits_2d = logits.view(B*T, -1)
             labels_2d = labels.view(B*T)
             ##print(f"logits_2d: {logits_2d}")
             ##print(f"labels_2d: {labels_2d}")
             loss = F.cross_entropy(logits_2d, labels_2d, ignore_index=-100) + lb_weight * total_lb_loss
-            #print(f"loss: {loss}")
+            print(f"loss: {loss}")
         if use_cache: 
             return Seq2SeqLMOutput(logits=logits, loss=loss), next_kvs
         return Seq2SeqLMOutput(logits=logits, loss=loss)

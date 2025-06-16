@@ -17,7 +17,7 @@ model = AutoModelForSeq2SeqLM.from_pretrained("VietAI/vit5-base").to('cuda')
 _, _, test_dataset = load_data(config.path_data)
 context_length = 1024
 batch_test = 4
-file_name = "t_wiki_wiki1024"
+file_name = "do_as"
 test_dataset = test_dataset.select(torch.arange(4))
 
 test_summarization(file_name, test_dataset, 
