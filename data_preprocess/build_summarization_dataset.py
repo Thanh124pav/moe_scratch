@@ -45,7 +45,7 @@ class BuildSummarizationDataset:
             attention_mask = enc['attention_mask'].squeeze(0)
             sep_id = self.tokenizer.convert_tokens_to_ids(sep_token)
             sep_idx = (input_ids == sep_id).nonzero(as_tuple=True)[0].item() if sep_id in input_ids else 0
-            if not inference:
+            if inference:
                 labels = self.tokenizer(summary, max_length=max_length, truncation=True, padding='max_length', return_tensors='pt')
                 labels = labels['input_ids'].squeeze(0).tolist()
                 labels = [idx if idx != self.tokenizer.pad_token_id else -100 for idx in labels]

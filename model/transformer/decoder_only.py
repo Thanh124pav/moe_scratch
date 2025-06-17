@@ -79,6 +79,8 @@ class DecoderOnly(nn.Module):
         loss = None
         
         if labels is not None:
+            labels = labels[...,1:].contiguous()
+            logits = logits[...,:-1,:].contiguous()
             B, T, C = logits.shape
             logits_flat = logits.reshape(B*T, C)
             labels_flat = labels.reshape(B*T)
