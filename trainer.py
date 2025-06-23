@@ -64,7 +64,6 @@ class Trainer:
             train_dataset=train_dataset,
             eval_dataset=eval_dataset,
             data_collator=self.data_collator,
-            compute_metrics=compute_metrics,
         )
         
         print("Starting training...")

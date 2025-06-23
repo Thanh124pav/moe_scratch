@@ -1,0 +1,136 @@
+2025-06-17 08:01:10,900 INFO    StreamThr :6620 [internal.py:wandb_internal():85] W&B internal server running at pid: 6620, started at: 2025-06-17 08:01:10.899759
+2025-06-17 08:01:10,902 DEBUG   HandlerThread:6620 [handler.py:handle_request():158] handle_request: status
+2025-06-17 08:01:10,905 INFO    WriterThread:6620 [datastore.py:open_for_write():87] open: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080110-s4vlgx7z\run-s4vlgx7z.wandb
+2025-06-17 08:01:10,907 DEBUG   SenderThread:6620 [sender.py:send():379] send: header
+2025-06-17 08:01:10,991 DEBUG   SenderThread:6620 [sender.py:send():379] send: run
+2025-06-17 08:01:11,871 INFO    SenderThread:6620 [dir_watcher.py:__init__():211] watching files in: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080110-s4vlgx7z\files
+2025-06-17 08:01:11,871 INFO    SenderThread:6620 [sender.py:_start_run_threads():1188] run started: s4vlgx7z with start time 1750122070.900752
+2025-06-17 08:01:11,881 DEBUG   HandlerThread:6620 [handler.py:handle_request():158] handle_request: check_version
+2025-06-17 08:01:11,881 DEBUG   SenderThread:6620 [sender.py:send_request():406] send_request: check_version
+2025-06-17 08:01:12,376 DEBUG   HandlerThread:6620 [handler.py:handle_request():158] handle_request: run_start
+2025-06-17 08:01:12,414 DEBUG   HandlerThread:6620 [system_info.py:__init__():26] System info init
+2025-06-17 08:01:12,414 DEBUG   HandlerThread:6620 [system_info.py:__init__():41] System info init done
+2025-06-17 08:01:12,414 INFO    HandlerThread:6620 [system_monitor.py:start():194] Starting system monitor
+2025-06-17 08:01:12,415 INFO    SystemMonitor:6620 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2025-06-17 08:01:12,415 INFO    HandlerThread:6620 [system_monitor.py:probe():214] Collecting system info
+2025-06-17 08:01:12,421 INFO    SystemMonitor:6620 [interfaces.py:start():188] Started cpu monitoring
+2025-06-17 08:01:12,423 INFO    SystemMonitor:6620 [interfaces.py:start():188] Started disk monitoring
+2025-06-17 08:01:12,424 INFO    SystemMonitor:6620 [interfaces.py:start():188] Started gpu monitoring
+2025-06-17 08:01:12,425 INFO    SystemMonitor:6620 [interfaces.py:start():188] Started memory monitoring
+2025-06-17 08:01:12,434 INFO    SystemMonitor:6620 [interfaces.py:start():188] Started network monitoring
+2025-06-17 08:01:12,441 DEBUG   HandlerThread:6620 [system_info.py:probe():152] Probing system
+2025-06-17 08:01:12,442 DEBUG   HandlerThread:6620 [system_info.py:_probe_git():137] Probing git
+2025-06-17 08:01:12,567 DEBUG   HandlerThread:6620 [system_info.py:_probe_git():145] Probing git done
+2025-06-17 08:01:12,567 DEBUG   HandlerThread:6620 [system_info.py:probe():200] Probing system done
+2025-06-17 08:01:12,567 DEBUG   HandlerThread:6620 [system_monitor.py:probe():223] {'os': 'Windows-10-10.0.22631-SP0', 'python': '3.11.5', 'heartbeatAt': '2025-06-17T01:01:12.441481', 'startedAt': '2025-06-17T01:01:10.891095', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': 'd:\\Downloads\\DS_AI\\VDT\\MoE\\moe\\train.py', 'codePathLocal': 'train.py', 'codePath': 'train.py', 'git': {'remote': 'https://github.com/Thanh124pav/moe_scratch.git', 'commit': '15e1551ac1925c0edacb40ac6219508b3b0effce'}, 'email': 'phamvanthanh.csp@gmail.com', 'root': 'D:/Downloads/DS_AI/VDT/MoE/moe', 'host': 'ASUS-newMe', 'username': 'PAVT', 'executable': 'D:\\Anaconda3\\python.exe', 'cpu_count': 6, 'cpu_count_logical': 12, 'cpu_freq': {'current': 3001.0, 'min': 0.0, 'max': 3001.0}, 'cpu_freq_per_core': [{'current': 3001.0, 'min': 0.0, 'max': 3001.0}], 'disk': {'/': {'total': 249.02245712280273, 'used': 211.66238403320312}}, 'gpu': 'NVIDIA GeForce GTX 1650', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce GTX 1650', 'memory_total': 4294967296}], 'memory': {'total': 7.420848846435547}}
+2025-06-17 08:01:12,568 INFO    HandlerThread:6620 [system_monitor.py:probe():224] Finished collecting system info
+2025-06-17 08:01:12,568 INFO    HandlerThread:6620 [system_monitor.py:probe():227] Publishing system info
+2025-06-17 08:01:12,568 DEBUG   HandlerThread:6620 [system_info.py:_save_conda():209] Saving list of conda packages installed into the current environment
+2025-06-17 08:01:12,878 INFO    Thread-16 :6620 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080110-s4vlgx7z\files\conda-environment.yaml
+2025-06-17 08:01:27,584 ERROR   HandlerThread:6620 [system_info.py:_save_conda():223] Error saving conda packages: Command '['conda', 'env', 'export']' timed out after 15 seconds
+Traceback (most recent call last):
+  File "D:\Anaconda3\Lib\site-packages\wandb\sdk\internal\system\system_info.py", line 216, in _save_conda
+    subprocess.call(
+  File "D:\Anaconda3\Lib\subprocess.py", line 391, in call
+    return p.wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\Lib\subprocess.py", line 1264, in wait
+    return self._wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\Lib\subprocess.py", line 1591, in _wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['conda', 'env', 'export']' timed out after 15 seconds
+2025-06-17 08:01:27,588 DEBUG   HandlerThread:6620 [system_info.py:_save_conda():224] Saving conda packages done
+2025-06-17 08:01:27,589 INFO    HandlerThread:6620 [system_monitor.py:probe():229] Finished publishing system info
+2025-06-17 08:01:27,604 DEBUG   HandlerThread:6620 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:01:27,605 DEBUG   HandlerThread:6620 [handler.py:handle_request():158] handle_request: keepalive
+2025-06-17 08:01:27,605 DEBUG   HandlerThread:6620 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:01:27,605 DEBUG   HandlerThread:6620 [handler.py:handle_request():158] handle_request: keepalive
+2025-06-17 08:01:27,605 DEBUG   HandlerThread:6620 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:01:27,605 DEBUG   HandlerThread:6620 [handler.py:handle_request():158] handle_request: keepalive
+2025-06-17 08:01:27,605 DEBUG   SenderThread:6620 [sender.py:send():379] send: files
+2025-06-17 08:01:27,606 INFO    SenderThread:6620 [sender.py:_save_file():1454] saving file wandb-metadata.json with policy now
+2025-06-17 08:01:28,020 INFO    Thread-16 :6620 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080110-s4vlgx7z\files\wandb-metadata.json
+2025-06-17 08:01:28,420 DEBUG   HandlerThread:6620 [handler.py:handle_request():158] handle_request: python_packages
+2025-06-17 08:01:28,420 DEBUG   SenderThread:6620 [sender.py:send_request():406] send_request: python_packages
+2025-06-17 08:01:28,421 DEBUG   HandlerThread:6620 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-17 08:01:28,423 DEBUG   SenderThread:6620 [sender.py:send_request():406] send_request: stop_status
+2025-06-17 08:01:28,425 DEBUG   HandlerThread:6620 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:01:28,626 INFO    wandb-upload_0:6620 [upload_job.py:push():130] Uploaded file C:\Users\PAVT\AppData\Local\Temp\tmpy_92gvxqwandb\mvb9d2ih-wandb-metadata.json
+2025-06-17 08:01:28,647 DEBUG   SenderThread:6620 [sender.py:send():379] send: telemetry
+2025-06-17 08:01:28,649 DEBUG   SenderThread:6620 [sender.py:send():379] send: exit
+2025-06-17 08:01:28,649 INFO    SenderThread:6620 [sender.py:send_exit():586] handling exit code: 1
+2025-06-17 08:01:28,650 INFO    SenderThread:6620 [sender.py:send_exit():588] handling runtime: 16
+2025-06-17 08:01:28,651 INFO    SenderThread:6620 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-17 08:01:28,652 INFO    SenderThread:6620 [sender.py:send_exit():594] send defer
+2025-06-17 08:01:28,652 DEBUG   HandlerThread:6620 [handler.py:handle_request():158] handle_request: defer
+2025-06-17 08:01:28,653 INFO    HandlerThread:6620 [handler.py:handle_request_defer():184] handle defer: 0
+2025-06-17 08:01:28,653 DEBUG   SenderThread:6620 [sender.py:send_request():406] send_request: defer
+2025-06-17 08:01:28,653 INFO    SenderThread:6620 [sender.py:send_request_defer():610] handle sender defer: 0
+2025-06-17 08:01:28,654 INFO    SenderThread:6620 [sender.py:transition_state():614] send defer: 1
+2025-06-17 08:01:28,654 DEBUG   HandlerThread:6620 [handler.py:handle_request():158] handle_request: defer
+2025-06-17 08:01:28,654 INFO    HandlerThread:6620 [handler.py:handle_request_defer():184] handle defer: 1
+2025-06-17 08:01:28,654 DEBUG   SenderThread:6620 [sender.py:send_request():406] send_request: defer
+2025-06-17 08:01:28,655 INFO    SenderThread:6620 [sender.py:send_request_defer():610] handle sender defer: 1
+2025-06-17 08:01:28,655 INFO    SenderThread:6620 [sender.py:transition_state():614] send defer: 2
+2025-06-17 08:01:28,655 DEBUG   HandlerThread:6620 [handler.py:handle_request():158] handle_request: defer
+2025-06-17 08:01:28,655 INFO    HandlerThread:6620 [handler.py:handle_request_defer():184] handle defer: 2
+2025-06-17 08:01:28,655 INFO    HandlerThread:6620 [system_monitor.py:finish():203] Stopping system monitor
+2025-06-17 08:01:28,655 DEBUG   SystemMonitor:6620 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2025-06-17 08:01:28,655 DEBUG   SystemMonitor:6620 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2025-06-17 08:01:28,655 DEBUG   SystemMonitor:6620 [system_monitor.py:_start():183] Publishing last batch of metrics
+2025-06-17 08:01:28,665 INFO    HandlerThread:6620 [interfaces.py:finish():200] Joined cpu monitor
+2025-06-17 08:01:28,666 INFO    HandlerThread:6620 [interfaces.py:finish():200] Joined disk monitor
+2025-06-17 08:01:28,734 INFO    HandlerThread:6620 [interfaces.py:finish():200] Joined gpu monitor
+2025-06-17 08:01:28,734 INFO    HandlerThread:6620 [interfaces.py:finish():200] Joined memory monitor
+2025-06-17 08:01:28,734 INFO    HandlerThread:6620 [interfaces.py:finish():200] Joined network monitor
+2025-06-17 08:01:28,735 DEBUG   SenderThread:6620 [sender.py:send_request():406] send_request: defer
+2025-06-17 08:01:28,735 INFO    SenderThread:6620 [sender.py:send_request_defer():610] handle sender defer: 2
+2025-06-17 08:01:28,735 INFO    SenderThread:6620 [sender.py:transition_state():614] send defer: 3
+2025-06-17 08:01:28,735 DEBUG   HandlerThread:6620 [handler.py:handle_request():158] handle_request: defer
+2025-06-17 08:01:28,735 INFO    HandlerThread:6620 [handler.py:handle_request_defer():184] handle defer: 3
+2025-06-17 08:01:28,735 DEBUG   SenderThread:6620 [sender.py:send_request():406] send_request: defer
+2025-06-17 08:01:28,735 INFO    SenderThread:6620 [sender.py:send_request_defer():610] handle sender defer: 3
+2025-06-17 08:01:28,735 INFO    SenderThread:6620 [sender.py:transition_state():614] send defer: 4
+2025-06-17 08:01:28,736 DEBUG   HandlerThread:6620 [handler.py:handle_request():158] handle_request: defer
+2025-06-17 08:01:28,736 INFO    HandlerThread:6620 [handler.py:handle_request_defer():184] handle defer: 4
+2025-06-17 08:01:28,736 DEBUG   SenderThread:6620 [sender.py:send_request():406] send_request: defer
+2025-06-17 08:01:28,736 INFO    SenderThread:6620 [sender.py:send_request_defer():610] handle sender defer: 4
+2025-06-17 08:01:28,736 INFO    SenderThread:6620 [sender.py:transition_state():614] send defer: 5
+2025-06-17 08:01:28,736 DEBUG   HandlerThread:6620 [handler.py:handle_request():158] handle_request: defer
+2025-06-17 08:01:28,736 INFO    HandlerThread:6620 [handler.py:handle_request_defer():184] handle defer: 5
+2025-06-17 08:01:28,736 DEBUG   SenderThread:6620 [sender.py:send():379] send: summary
+2025-06-17 08:01:28,737 INFO    SenderThread:6620 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-06-17 08:01:28,737 DEBUG   SenderThread:6620 [sender.py:send_request():406] send_request: defer
+2025-06-17 08:01:28,737 INFO    SenderThread:6620 [sender.py:send_request_defer():610] handle sender defer: 5
+2025-06-17 08:01:28,737 INFO    SenderThread:6620 [sender.py:transition_state():614] send defer: 6
+2025-06-17 08:01:28,737 DEBUG   HandlerThread:6620 [handler.py:handle_request():158] handle_request: defer
+2025-06-17 08:01:28,738 INFO    HandlerThread:6620 [handler.py:handle_request_defer():184] handle defer: 6
+2025-06-17 08:01:28,738 DEBUG   SenderThread:6620 [sender.py:send_request():406] send_request: defer
+2025-06-17 08:01:28,738 INFO    SenderThread:6620 [sender.py:send_request_defer():610] handle sender defer: 6
+2025-06-17 08:01:28,742 DEBUG   HandlerThread:6620 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:01:28,999 INFO    SenderThread:6620 [sender.py:transition_state():614] send defer: 7
+2025-06-17 08:01:28,999 DEBUG   HandlerThread:6620 [handler.py:handle_request():158] handle_request: defer
+2025-06-17 08:01:28,999 INFO    HandlerThread:6620 [handler.py:handle_request_defer():184] handle defer: 7
+2025-06-17 08:01:29,000 DEBUG   SenderThread:6620 [sender.py:send_request():406] send_request: defer
+2025-06-17 08:01:29,000 INFO    SenderThread:6620 [sender.py:send_request_defer():610] handle sender defer: 7
+2025-06-17 08:01:29,033 INFO    Thread-16 :6620 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080110-s4vlgx7z\files\config.yaml
+2025-06-17 08:01:29,033 INFO    Thread-16 :6620 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080110-s4vlgx7z\files\wandb-summary.json
+2025-06-17 08:01:29,034 INFO    Thread-16 :6620 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080110-s4vlgx7z\files\requirements.txt
+2025-06-17 08:01:29,034 INFO    Thread-16 :6620 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080110-s4vlgx7z\files\output.log
+2025-06-17 08:01:29,558 DEBUG   HandlerThread:6620 [handler.py:handle_request():158] handle_request: poll_exit
+2025-06-17 08:01:31,054 INFO    Thread-16 :6620 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080110-s4vlgx7z\files\output.log
+2025-06-17 08:01:32,655 INFO    SenderThread:6620 [sender.py:transition_state():614] send defer: 8
+2025-06-17 08:01:32,655 DEBUG   SenderThread:6620 [sender.py:send_request():406] send_request: poll_exit
+2025-06-17 08:01:32,656 DEBUG   HandlerThread:6620 [handler.py:handle_request():158] handle_request: defer
+2025-06-17 08:01:32,656 INFO    HandlerThread:6620 [handler.py:handle_request_defer():184] handle defer: 8
+2025-06-17 08:01:32,656 DEBUG   SenderThread:6620 [sender.py:send_request():406] send_request: defer
+2025-06-17 08:01:32,656 INFO    SenderThread:6620 [sender.py:send_request_defer():610] handle sender defer: 8
+2025-06-17 08:01:32,656 INFO    SenderThread:6620 [job_builder.py:build():440] Attempting to build job artifact
+2025-06-17 08:01:32,657 INFO    SenderThread:6620 [job_builder.py:_get_source_type():569] is repo sourced job
+2025-06-17 08:01:32,731 INFO    SenderThread:6620 [job_builder.py:build():545] adding wandb-job metadata file
+2025-06-17 08:01:32,737 INFO    SenderThread:6620 [sender.py:transition_state():614] send defer: 9
+2025-06-17 08:01:32,737 DEBUG   SenderThread:6620 [sender.py:send():379] send: artifact
+2025-06-17 08:01:32,737 DEBUG   HandlerThread:6620 [handler.py:handle_request():158] handle_request: defer
+2025-06-17 08:01:32,738 INFO    HandlerThread:6620 [handler.py:handle_request_defer():184] handle defer: 9
+2025-06-17 08:01:33,075 INFO    Thread-16 :6620 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080110-s4vlgx7z\files\output.log

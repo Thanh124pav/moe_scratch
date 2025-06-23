@@ -12,7 +12,8 @@ print("CUDA khả dụng:", torch.cuda.is_available())
 
 from compute_parmeters import ModelParameterCount
 from moe.decoder_only import MoEDecoderModel
-from model.moe.deepseek_decoder_only import DeepSeekMoEDecoderModel
+from moe.deepseek_decoder_only import DeepSeekMoEDecoderModel
+from transformer.decoder_only import DecoderOnly
 # from tokenized_data.tokenizer import tokenizer
 tokenizer = AutoTokenizer.from_pretrained('tokenized_data/do_tokenizer')
 tokenizer.padding_size = 'left'
@@ -38,23 +39,42 @@ config = PretrainedConfig(
     path_data = "data/summarization/do/",
 )
 
+
 FGconfig = PretrainedConfig(
     vocab_size=tokenizer.vocab_size + 1,
     pad_token_id=tokenizer.pad_token_id,
     eos_token_id=tokenizer.eos_token_id,
     decoder_start_token_id=tokenizer.pad_token_id,  # VietAI/vit5 dùng pad_token làm start token
-    embed_dim = 256,    
+    embed_dim = 256,    # Tăng embedding dimension
     block_size = 1024,
-    n_layers = 4,     
+    n_layers = 8,       
     n_heads = 8,
-    n_experts = 16,
+    n_experts = 32,
     top_k_experts = 4, 
-    run_name = "decoder_as",
-    folder = "saved_model/test_do_tokL_as",
+    run_name = "deepseek_decoder_mt",
+    folder = "saved_model/deepseek_32experts_mt",
     num_epochs = 7,
-    batch_size = 2,
-    path_data = "data/summarization/do/",
+    batch_size = 16,
+    path_data = "data/all/do/",
 )
+
+Tconfig = PretrainedConfig(
+    vocab_size=tokenizer.vocab_size + 1,
+    pad_token_id=tokenizer.pad_token_id,
+    eos_token_id=tokenizer.eos_token_id,
+    decoder_start_token_id=tokenizer.pad_token_id,  # VietAI/vit5 dùng pad_token làm start token
+    embed_dim = 512,    # Tăng embedding dimension
+    block_size = 1024,
+    n_layers = 8,       
+    n_heads = 8,
+    n_experts = 32,
+    top_k_experts = 4, 
+    run_name = "deepseek_decoder_mt",
+    folder = "saved_model/deepseek_32experts_mt",
+    num_epochs = 7,
+    batch_size = 16,
+    path_data = "data/all/do/",
+) 
 
 # model = MoEDecoderModel(config).to('cuda')
 # model = DeepSeekMoEDecoderModel(config).to('cuda')
@@ -62,5 +82,6 @@ FGconfig = PretrainedConfig(
 if __name__ == "__main__":
     ModelParameterCount(MoEDecoderModel, config)
     ModelParameterCount(DeepSeekMoEDecoderModel, FGconfig)
+    ModelParameterCount(DecoderOnly, Tconfig)
 
 

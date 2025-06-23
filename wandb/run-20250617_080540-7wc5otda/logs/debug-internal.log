@@ -1,0 +1,675 @@
+2025-06-17 08:05:40,095 INFO    StreamThr :9996 [internal.py:wandb_internal():85] W&B internal server running at pid: 9996, started at: 2025-06-17 08:05:40.093776
+2025-06-17 08:05:40,100 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status
+2025-06-17 08:05:40,104 INFO    WriterThread:9996 [datastore.py:open_for_write():87] open: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\run-7wc5otda.wandb
+2025-06-17 08:05:40,108 DEBUG   SenderThread:9996 [sender.py:send():379] send: header
+2025-06-17 08:05:40,214 DEBUG   SenderThread:9996 [sender.py:send():379] send: run
+2025-06-17 08:05:41,274 INFO    SenderThread:9996 [dir_watcher.py:__init__():211] watching files in: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files
+2025-06-17 08:05:41,275 INFO    SenderThread:9996 [sender.py:_start_run_threads():1188] run started: 7wc5otda with start time 1750122340.094823
+2025-06-17 08:05:41,279 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: check_version
+2025-06-17 08:05:41,280 DEBUG   SenderThread:9996 [sender.py:send_request():406] send_request: check_version
+2025-06-17 08:05:41,934 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: run_start
+2025-06-17 08:05:42,001 DEBUG   HandlerThread:9996 [system_info.py:__init__():26] System info init
+2025-06-17 08:05:42,001 DEBUG   HandlerThread:9996 [system_info.py:__init__():41] System info init done
+2025-06-17 08:05:42,001 INFO    HandlerThread:9996 [system_monitor.py:start():194] Starting system monitor
+2025-06-17 08:05:42,003 INFO    SystemMonitor:9996 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2025-06-17 08:05:42,004 INFO    HandlerThread:9996 [system_monitor.py:probe():214] Collecting system info
+2025-06-17 08:05:42,013 INFO    SystemMonitor:9996 [interfaces.py:start():188] Started cpu monitoring
+2025-06-17 08:05:42,016 INFO    SystemMonitor:9996 [interfaces.py:start():188] Started disk monitoring
+2025-06-17 08:05:42,020 INFO    SystemMonitor:9996 [interfaces.py:start():188] Started gpu monitoring
+2025-06-17 08:05:42,035 INFO    SystemMonitor:9996 [interfaces.py:start():188] Started memory monitoring
+2025-06-17 08:05:42,037 DEBUG   HandlerThread:9996 [system_info.py:probe():152] Probing system
+2025-06-17 08:05:42,046 INFO    SystemMonitor:9996 [interfaces.py:start():188] Started network monitoring
+2025-06-17 08:05:42,059 DEBUG   HandlerThread:9996 [system_info.py:_probe_git():137] Probing git
+2025-06-17 08:05:42,252 DEBUG   HandlerThread:9996 [system_info.py:_probe_git():145] Probing git done
+2025-06-17 08:05:42,252 DEBUG   HandlerThread:9996 [system_info.py:probe():200] Probing system done
+2025-06-17 08:05:42,252 DEBUG   HandlerThread:9996 [system_monitor.py:probe():223] {'os': 'Windows-10-10.0.22631-SP0', 'python': '3.11.5', 'heartbeatAt': '2025-06-17T01:05:42.037170', 'startedAt': '2025-06-17T01:05:40.071394', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': 'd:\\Downloads\\DS_AI\\VDT\\MoE\\moe\\train.py', 'codePathLocal': 'train.py', 'codePath': 'train.py', 'git': {'remote': 'https://github.com/Thanh124pav/moe_scratch.git', 'commit': '15e1551ac1925c0edacb40ac6219508b3b0effce'}, 'email': 'phamvanthanh.csp@gmail.com', 'root': 'D:/Downloads/DS_AI/VDT/MoE/moe', 'host': 'ASUS-newMe', 'username': 'PAVT', 'executable': 'D:\\Anaconda3\\python.exe', 'cpu_count': 6, 'cpu_count_logical': 12, 'cpu_freq': {'current': 3001.0, 'min': 0.0, 'max': 3001.0}, 'cpu_freq_per_core': [{'current': 3001.0, 'min': 0.0, 'max': 3001.0}], 'disk': {'/': {'total': 249.02245712280273, 'used': 211.66190338134766}}, 'gpu': 'NVIDIA GeForce GTX 1650', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce GTX 1650', 'memory_total': 4294967296}], 'memory': {'total': 7.420848846435547}}
+2025-06-17 08:05:42,253 INFO    HandlerThread:9996 [system_monitor.py:probe():224] Finished collecting system info
+2025-06-17 08:05:42,253 INFO    HandlerThread:9996 [system_monitor.py:probe():227] Publishing system info
+2025-06-17 08:05:42,253 DEBUG   HandlerThread:9996 [system_info.py:_save_conda():209] Saving list of conda packages installed into the current environment
+2025-06-17 08:05:42,282 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\conda-environment.yaml
+2025-06-17 08:05:46,132 ERROR   gpu       :9996 [interfaces.py:monitor():142] Failed to sample metric: Unknown Error
+2025-06-17 08:05:46,133 ERROR   gpu       :9996 [interfaces.py:monitor():142] Failed to sample metric: Unknown Error
+2025-06-17 08:05:57,278 ERROR   HandlerThread:9996 [system_info.py:_save_conda():223] Error saving conda packages: Command '['conda', 'env', 'export']' timed out after 15 seconds
+Traceback (most recent call last):
+  File "D:\Anaconda3\Lib\site-packages\wandb\sdk\internal\system\system_info.py", line 216, in _save_conda
+    subprocess.call(
+  File "D:\Anaconda3\Lib\subprocess.py", line 391, in call
+    return p.wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\Lib\subprocess.py", line 1264, in wait
+    return self._wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\Lib\subprocess.py", line 1591, in _wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['conda', 'env', 'export']' timed out after 15 seconds
+2025-06-17 08:05:57,283 DEBUG   HandlerThread:9996 [system_info.py:_save_conda():224] Saving conda packages done
+2025-06-17 08:05:57,284 INFO    HandlerThread:9996 [system_monitor.py:probe():229] Finished publishing system info
+2025-06-17 08:05:57,313 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:05:57,313 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: keepalive
+2025-06-17 08:05:57,313 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:05:57,313 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: keepalive
+2025-06-17 08:05:57,313 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:05:57,313 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: keepalive
+2025-06-17 08:05:57,315 DEBUG   SenderThread:9996 [sender.py:send():379] send: files
+2025-06-17 08:05:57,316 INFO    SenderThread:9996 [sender.py:_save_file():1454] saving file wandb-metadata.json with policy now
+2025-06-17 08:05:57,419 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\wandb-metadata.json
+2025-06-17 08:05:58,651 ERROR   gpu       :9996 [interfaces.py:monitor():142] Failed to sample metric: Unknown Error
+2025-06-17 08:05:58,652 ERROR   gpu       :9996 [interfaces.py:monitor():142] Failed to sample metric: Unknown Error
+2025-06-17 08:05:58,773 INFO    wandb-upload_0:9996 [upload_job.py:push():130] Uploaded file C:\Users\PAVT\AppData\Local\Temp\tmpdeo9uzipwandb\hiu1pvnt-wandb-metadata.json
+2025-06-17 08:05:58,962 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: python_packages
+2025-06-17 08:05:58,962 DEBUG   SenderThread:9996 [sender.py:send_request():406] send_request: python_packages
+2025-06-17 08:05:58,966 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-17 08:05:58,966 DEBUG   SenderThread:9996 [sender.py:send_request():406] send_request: stop_status
+2025-06-17 08:05:58,971 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:05:59,287 DEBUG   SenderThread:9996 [sender.py:send():379] send: telemetry
+2025-06-17 08:05:59,422 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\requirements.txt
+2025-06-17 08:05:59,422 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:05:59,982 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:00,995 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:01,307 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:06:01,450 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:06:02,012 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:03,054 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:03,478 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:06:04,055 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:05,101 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:06,150 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:07,038 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:06:07,164 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:08,224 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:09,238 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:10,246 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:11,159 ERROR   gpu       :9996 [interfaces.py:monitor():142] Failed to sample metric: Unknown Error
+2025-06-17 08:06:11,160 ERROR   gpu       :9996 [interfaces.py:monitor():142] Failed to sample metric: Unknown Error
+2025-06-17 08:06:11,271 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:12,059 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:06:12,284 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:12,552 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\config.yaml
+2025-06-17 08:06:13,339 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:14,028 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-17 08:06:14,029 DEBUG   SenderThread:9996 [sender.py:send_request():406] send_request: stop_status
+2025-06-17 08:06:14,312 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:15,330 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:16,342 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:17,366 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:18,282 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:06:18,385 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:19,423 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:20,425 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:21,445 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:22,475 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:23,505 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:23,705 ERROR   gpu       :9996 [interfaces.py:monitor():142] Failed to sample metric: Unknown Error
+2025-06-17 08:06:23,705 ERROR   gpu       :9996 [interfaces.py:monitor():142] Failed to sample metric: Unknown Error
+2025-06-17 08:06:24,106 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:06:24,487 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:25,503 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:26,549 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:27,613 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:28,640 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:29,027 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-17 08:06:29,027 DEBUG   SenderThread:9996 [sender.py:send_request():406] send_request: stop_status
+2025-06-17 08:06:29,250 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:06:29,654 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:30,691 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:31,763 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:32,765 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:33,802 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:34,819 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:35,149 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:06:35,860 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:36,196 ERROR   gpu       :9996 [interfaces.py:monitor():142] Failed to sample metric: Unknown Error
+2025-06-17 08:06:36,196 ERROR   gpu       :9996 [interfaces.py:monitor():142] Failed to sample metric: Unknown Error
+2025-06-17 08:06:36,887 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:37,914 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:38,946 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:39,821 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\conda-environment.yaml
+2025-06-17 08:06:39,968 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:40,196 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:06:41,001 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:42,022 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:42,066 DEBUG   SystemMonitor:9996 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2025-06-17 08:06:42,069 DEBUG   SenderThread:9996 [sender.py:send():379] send: stats
+2025-06-17 08:06:42,669 DEBUG   SenderThread:9996 [sender.py:send():379] send: config
+2025-06-17 08:06:42,670 DEBUG   SenderThread:9996 [sender.py:send():379] send: metric
+2025-06-17 08:06:42,670 DEBUG   SenderThread:9996 [sender.py:send():379] send: telemetry
+2025-06-17 08:06:42,671 DEBUG   SenderThread:9996 [sender.py:send():379] send: telemetry
+2025-06-17 08:06:42,671 DEBUG   SenderThread:9996 [sender.py:send():379] send: metric
+2025-06-17 08:06:42,671 WARNING SenderThread:9996 [sender.py:send_metric():1405] Seen metric with glob (shouldn't happen)
+2025-06-17 08:06:42,671 DEBUG   SenderThread:9996 [sender.py:send():379] send: telemetry
+2025-06-17 08:06:43,018 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:44,032 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-17 08:06:44,032 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:44,033 DEBUG   SenderThread:9996 [sender.py:send_request():406] send_request: stop_status
+2025-06-17 08:06:44,874 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:06:45,044 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:46,047 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:46,106 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:06:46,913 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\config.yaml
+2025-06-17 08:06:47,059 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:47,929 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:06:48,070 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:48,944 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:06:49,085 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:49,957 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:06:50,099 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:50,968 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:06:51,108 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:51,482 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:06:51,971 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:06:52,112 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:52,993 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:06:53,127 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:54,007 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:06:54,133 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:55,021 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:06:55,142 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:56,035 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:06:56,157 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:56,827 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:06:57,051 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:06:57,171 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:58,062 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:06:58,173 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:06:59,042 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-17 08:06:59,042 DEBUG   SenderThread:9996 [sender.py:send_request():406] send_request: stop_status
+2025-06-17 08:06:59,076 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:06:59,182 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:00,090 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:00,198 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:01,123 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:01,193 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:02,006 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:07:02,136 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:02,195 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:03,148 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:03,208 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:04,155 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:04,216 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:05,168 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:05,222 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:06,170 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:06,232 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:07,157 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:07:07,190 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:07,238 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:08,203 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:08,248 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:09,216 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:09,261 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:10,217 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:10,264 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:11,246 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:11,275 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:12,072 DEBUG   SenderThread:9996 [sender.py:send():379] send: stats
+2025-06-17 08:07:12,260 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:12,292 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:12,315 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:07:13,275 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:13,289 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:14,039 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-17 08:07:14,040 DEBUG   SenderThread:9996 [sender.py:send_request():406] send_request: stop_status
+2025-06-17 08:07:14,293 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:14,304 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:15,303 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:15,314 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:16,310 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:16,325 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:17,330 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:17,331 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:17,633 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:07:18,344 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:18,346 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:19,360 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:19,362 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:20,377 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:21,390 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:21,391 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:22,401 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:23,022 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:07:23,391 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:23,424 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:24,392 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:25,396 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:25,443 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:26,406 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:27,419 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:27,466 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:28,362 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:07:28,433 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:29,048 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-17 08:07:29,049 DEBUG   SenderThread:9996 [sender.py:send_request():406] send_request: stop_status
+2025-06-17 08:07:29,424 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:29,512 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:30,438 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:31,449 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:31,527 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:32,453 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:33,469 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:33,565 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:33,732 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:07:34,479 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:35,480 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:35,615 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:36,483 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:37,497 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:37,657 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:38,513 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:39,250 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:07:39,527 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:39,701 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:40,526 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:41,526 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:41,749 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:42,091 DEBUG   SenderThread:9996 [sender.py:send():379] send: stats
+2025-06-17 08:07:42,523 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:43,535 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:43,796 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:44,059 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-17 08:07:44,060 DEBUG   SenderThread:9996 [sender.py:send_request():406] send_request: stop_status
+2025-06-17 08:07:44,287 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:07:44,554 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:44,806 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:45,569 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:45,845 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:46,583 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:46,847 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:47,610 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:47,890 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:48,622 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:48,901 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:49,299 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:07:49,612 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:49,946 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:50,629 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:50,957 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:51,637 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:51,978 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:52,636 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:52,991 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:53,633 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:54,026 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:54,304 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:07:54,643 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:55,033 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:55,650 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:56,054 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:56,649 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:57,060 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:57,652 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:58,081 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:58,660 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:07:59,066 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-17 08:07:59,067 DEBUG   SenderThread:9996 [sender.py:send_request():406] send_request: stop_status
+2025-06-17 08:07:59,100 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:07:59,387 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:07:59,676 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:00,135 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:00,691 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:01,148 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:01,699 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:02,166 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:02,713 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:03,180 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:03,727 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:04,193 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:04,470 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:08:04,740 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:05,209 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:05,742 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:06,210 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:06,753 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:07,225 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:07,762 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:08,233 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:08,766 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:09,237 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:09,709 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:08:09,771 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:10,239 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:10,780 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:11,240 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:11,788 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:12,100 DEBUG   SenderThread:9996 [sender.py:send():379] send: stats
+2025-06-17 08:08:12,269 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:12,800 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:13,270 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:13,802 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:14,070 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-17 08:08:14,070 DEBUG   SenderThread:9996 [sender.py:send_request():406] send_request: stop_status
+2025-06-17 08:08:14,298 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:14,785 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:08:14,810 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:15,309 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:15,830 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:16,340 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:16,846 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:17,343 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:17,859 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:18,356 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:18,867 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:19,370 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:19,869 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:20,183 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:08:20,374 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:20,873 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:21,391 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:21,889 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:22,405 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:22,904 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:23,421 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:23,919 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:24,431 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:24,932 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:25,437 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:25,532 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:08:25,939 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:26,439 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:26,942 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:27,440 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:27,954 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:28,456 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:28,967 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:29,063 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-17 08:08:29,064 DEBUG   SenderThread:9996 [sender.py:send_request():406] send_request: stop_status
+2025-06-17 08:08:29,468 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:29,983 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:30,483 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:30,612 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:08:30,997 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:31,494 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:32,012 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:32,521 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:33,013 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:33,523 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:34,024 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:35,040 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:35,555 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:35,684 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:08:36,053 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:37,070 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:37,581 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:38,084 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:39,087 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:39,621 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:40,101 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:41,105 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:41,151 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:08:41,652 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:42,106 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:42,107 DEBUG   SenderThread:9996 [sender.py:send():379] send: stats
+2025-06-17 08:08:43,107 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:43,674 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:44,082 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-17 08:08:44,083 DEBUG   SenderThread:9996 [sender.py:send_request():406] send_request: stop_status
+2025-06-17 08:08:44,112 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:45,127 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:45,691 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:46,138 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:46,561 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:08:47,130 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:47,727 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:48,139 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:49,152 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:49,764 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:50,151 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:51,158 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:51,783 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:52,025 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:08:52,171 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:53,186 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:53,798 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:54,189 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:55,204 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:55,827 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:56,215 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:57,229 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:57,518 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:08:57,854 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:08:58,232 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:59,092 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-17 08:08:59,093 DEBUG   SenderThread:9996 [sender.py:send_request():406] send_request: stop_status
+2025-06-17 08:08:59,246 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:08:59,872 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:00,248 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:01,254 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:01,895 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:02,269 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:02,907 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:02,946 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:09:03,280 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:03,920 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:04,293 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:04,936 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:05,302 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:05,948 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:06,308 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:06,965 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:07,298 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:07,970 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:08,313 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:08,385 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:09:08,988 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:09,316 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:10,003 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:10,333 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:11,007 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:11,339 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:12,019 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:12,116 DEBUG   SenderThread:9996 [sender.py:send():379] send: stats
+2025-06-17 08:09:12,350 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:13,027 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:13,352 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:13,759 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:09:14,041 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:14,102 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-17 08:09:14,103 DEBUG   SenderThread:9996 [sender.py:send_request():406] send_request: stop_status
+2025-06-17 08:09:14,369 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:15,060 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:15,365 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:16,072 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:16,390 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:17,085 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:17,382 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:18,095 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:18,376 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:19,113 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:19,177 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:09:19,390 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:20,120 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:20,397 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:21,131 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:21,410 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:22,143 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:22,424 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:23,157 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:23,437 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:24,166 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:24,411 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:09:24,441 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:25,178 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:25,444 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:26,190 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:26,453 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:27,204 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:27,468 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:28,216 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:28,482 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:29,099 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-17 08:09:29,100 DEBUG   SenderThread:9996 [sender.py:send_request():406] send_request: stop_status
+2025-06-17 08:09:29,229 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:29,429 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:09:29,492 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:30,241 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:30,504 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:31,252 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:31,505 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:32,258 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:32,510 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:33,275 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:33,511 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:34,288 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:34,445 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:09:34,507 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:35,295 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:35,524 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:36,301 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:36,537 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:37,320 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:37,550 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:38,337 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:38,553 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:39,340 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:39,449 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:09:39,559 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:40,350 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:40,571 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:41,359 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:41,575 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:42,122 DEBUG   SenderThread:9996 [sender.py:send():379] send: stats
+2025-06-17 08:09:42,375 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:42,574 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:43,378 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:43,566 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:44,096 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-17 08:09:44,098 DEBUG   SenderThread:9996 [sender.py:send_request():406] send_request: stop_status
+2025-06-17 08:09:44,394 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:44,579 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:44,711 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:09:45,405 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:45,591 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:46,415 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:46,601 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:47,434 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:47,604 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:48,458 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:48,606 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:49,472 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:49,613 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:50,202 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:09:50,483 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:50,623 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:51,495 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:51,638 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:52,499 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:52,640 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:53,506 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:53,646 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:54,509 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:54,654 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:55,528 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:55,665 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:55,706 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:09:56,549 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:56,669 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:57,553 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:57,678 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:58,569 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:58,686 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:09:59,107 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-17 08:09:59,108 DEBUG   SenderThread:9996 [sender.py:send_request():406] send_request: stop_status
+2025-06-17 08:09:59,580 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:09:59,698 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:00,596 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:00,696 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:01,084 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:10:02,020 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:02,023 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:02,794 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:03,047 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:03,743 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:04,084 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:04,747 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:05,114 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:05,737 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:06,163 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:06,504 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:10:06,780 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:07,179 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:07,813 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:08,221 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:08,819 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:09,236 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:09,830 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:10,283 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:10,844 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:11,295 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:11,786 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:10:11,893 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:12,132 DEBUG   SenderThread:9996 [sender.py:send():379] send: stats
+2025-06-17 08:10:12,350 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:12,912 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:13,365 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:13,930 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:14,129 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-17 08:10:14,130 DEBUG   SenderThread:9996 [sender.py:send_request():406] send_request: stop_status
+2025-06-17 08:10:14,404 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:14,947 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:15,423 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:15,945 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:16,444 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:16,954 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:17,094 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:10:17,500 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:17,971 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:18,488 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:18,978 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:19,493 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:19,972 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:20,541 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:20,987 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:21,547 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:22,001 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:22,135 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:10:22,557 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:23,011 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:23,571 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:24,015 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:24,590 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:25,024 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:25,604 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:26,028 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:26,637 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:27,049 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:27,515 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:10:27,652 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:28,057 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:28,667 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:29,059 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:29,138 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-17 08:10:29,139 DEBUG   SenderThread:9996 [sender.py:send_request():406] send_request: stop_status
+2025-06-17 08:10:29,678 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:30,070 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:31,067 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:31,720 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:32,081 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:32,916 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:10:33,098 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:33,776 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:34,105 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:35,104 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:35,806 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:36,099 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:37,111 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:37,850 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:38,115 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:38,152 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:10:39,123 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:39,882 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:40,128 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:41,134 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:41,939 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:42,133 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:42,134 DEBUG   SenderThread:9996 [sender.py:send():379] send: stats
+2025-06-17 08:10:43,128 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:43,691 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: status_report
+2025-06-17 08:10:43,981 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:44,141 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:44,149 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: stop_status
+2025-06-17 08:10:44,150 DEBUG   SenderThread:9996 [sender.py:send_request():406] send_request: stop_status
+2025-06-17 08:10:45,159 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:46,012 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:46,178 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:47,184 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
+2025-06-17 08:10:48,047 INFO    Thread-16 :9996 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Downloads\DS_AI\VDT\MoE\moe\wandb\run-20250617_080540-7wc5otda\files\output.log
+2025-06-17 08:10:48,203 DEBUG   HandlerThread:9996 [handler.py:handle_request():158] handle_request: internal_messages
